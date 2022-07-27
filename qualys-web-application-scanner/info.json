@@ -1,0 +1,1227 @@
+{
+  "description": "Cloud solution for continuous web app discovery and detection of vulnerabilities and misconfigurations.",
+  "category": "Web Application Scanner",
+  "name": "qualys-web-application-scanner",
+  "label": "Qualys Web Application Scan",
+  "version": "1.0.0",
+  "publisher": "Fortinet",
+  "cs_approved": false,
+  "cs_compatible": true,
+  "icon_small_name": "small.png",
+  "icon_large_name": "large.png",
+  "help_online": "",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Server URL",
+        "name": "server_url",
+        "type": "text",
+        "tooltip": "",
+        "description": "",
+        "required": true,
+        "editable": true,
+        "visible": true
+      },
+      {
+        "title": "Username",
+        "name": "username",
+        "type": "text",
+        "tooltip": "Provide username credentials with API access to Qualys Web Application.",
+        "description": "Provide username credentials with API access to Qualys Web Application.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "value": ""
+      },
+      {
+        "title": "Password",
+        "name": "password",
+        "type": "password",
+        "tooltip": "Provide password credentials with API access to Qualys Web Application.",
+        "description": "Provide password credentials with API access to Qualys Web Application.",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "value": ""
+      },
+      {
+        "title": "Verify SSL",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": true,
+        "description": "Specifies whether the SSL certificate for the server is to be verified or not."
+      }
+    ]
+  },
+  "operations": [
+    {
+      "title": "Get Scan Count",
+      "operation": "scan_count",
+      "description": "Returns the total number of scans in the user’s account. Input elements are optional and are used to filter the number of scans included in the count. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission API Access. The count includes scans in the user's scope",
+      "category": "investigation",
+      "annotation": "scan_count",
+      "output_schema": {
+        "ServiceResponse": {
+          "responseCode": "",
+          "count": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Scan ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "id",
+          "description": "The scan ID."
+        },
+        {
+          "title": "Scan Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "The scan name."
+        },
+        {
+          "title": "Web App Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "webApp.name",
+          "description": "The name of the web application being scanned."
+        },
+        {
+          "title": "Web App ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "webApp.id",
+          "description": "The ID of the web application being scanned."
+        },
+        {
+          "title": "Web App Tag ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "webApp.tags.id",
+          "description": "The tag ID assigned to web application being scanned."
+        },
+        {
+          "title": "Reference",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "reference",
+          "description": "Scan Reference ID."
+        },
+        {
+          "title": "Launch Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "launchedDate",
+          "description": " The date and time when the scan was launched in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
+        },
+        {
+          "title": "Type",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "VULNERABILITY",
+            "DISCOVERY"
+          ],
+          "name": "type",
+          "description": "The scan type: VULNERABILITY or DISCOVERY"
+        },
+        {
+          "title": "Mode",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "ONDEMAND",
+            "SCHEDULED",
+            "API"
+          ],
+          "name": "mode",
+          "description": "The mode of the scan: ONDEMAND, SCHEDULED or API."
+        },
+        {
+          "title": "Status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "SUBMITTED",
+            "RUNNING",
+            "FINISHED",
+            "TIME_LIMIT_EXCEEDED",
+            "SCAN_NOT_LAUNCHED",
+            "SCANNER_NOT_AVAILABLE",
+            "ERROR",
+            "CANCELED"
+          ],
+          "name": "status",
+          "description": "The status of the scan: SUBMITTED, RUNNING, FINISHED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, ERROR or CANCELED"
+        },
+        {
+          "title": "Authentication Status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "NONE",
+            "NOT_USED",
+            "SUCCESSFUL",
+            "FAILED",
+            "PARTIAL"
+          ],
+          "name": "authStatus",
+          "description": " Indicates the status of the authentication record: NONE, NOT_USED, SUCCESSFUL, FAILED or PARTIAL"
+        },
+        {
+          "title": "Result Status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "NOT_USED",
+            "NO_HOST_ALIVE",
+            "NO_WEB_SERVICE",
+            "PROCESSING",
+            "SCAN_RESULTS_INVALID",
+            "TIME_LIMIT_REACHED",
+            "SERVICE_ERROR",
+            "SCAN_INTERNAL_ERROR",
+            "SUCCESSFUL",
+            "TO_BE_PROCESSED",
+            "TIME_LIMIT_EXCEEDED",
+            "SCAN_NOT_LAUNCHED",
+            "SCANNER_NOT_AVAILABLE",
+            "SUBMITTED",
+            "RUNNING",
+            "FINISHED",
+            "CANCELED",
+            "CANCELING ERROR",
+            "DELETED"
+          ],
+          "name": "resultsStatus",
+          "description": "(keyword) The status of the scan: NOT_USED, NO_HOST_ALIVE, NO_WEB_SERVICE, PROCESSING, SCAN_RESULTS_INVALID, TIME_LIMIT_REACHED, SERVICE_ERROR, SCAN_INTERNAL_ERROR, SUCCESSFUL, TO_BE_PROCESSED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, SUBMITTED, RUNNING, FINISHED, CANCELED, CANCELING ERROR, DELETED."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Search Scans",
+      "operation": "search_scans",
+      "description": "Returns a list of scans on web applications which are in the user’s scope",
+      "category": "investigation",
+      "annotation": "search_scans",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "WasScan": {
+                "target": {
+                  "webApp": {
+                    "name": "",
+                    "url": "",
+                    "id": ""
+                  },
+                  "cancelOption": "",
+                  "scannerAppliance": {
+                    "type": ""
+                  }
+                },
+                "launchedBy": {
+                  "id": "",
+                  "lastName": "",
+                  "firstName": "",
+                  "username": ""
+                },
+                "reference": "",
+                "multi": "",
+                "mode": "",
+                "id": "",
+                "profile": {
+                  "id": "",
+                  "name": ""
+                },
+                "status": "",
+                "launchedDate": "",
+                "type": "",
+                "name": "",
+                "summary": {
+                  "resultsStatus": "",
+                  "authStatus": ""
+                }
+              }
+            }
+          ],
+          "hasMoreRecords": "",
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Scan ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "id",
+          "description": "The scan ID."
+        },
+        {
+          "title": "Scan Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "The scan name."
+        },
+        {
+          "title": "Web App Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "webApp.name",
+          "description": "The name of the web application being scanned."
+        },
+        {
+          "title": "Web App id",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "webApp.id",
+          "description": "The ID of the web application being scanned."
+        },
+        {
+          "title": "Web App Rag ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "webApp.tags.id",
+          "description": "The tag ID assigned to web application being scanned."
+        },
+        {
+          "title": "Reference",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "reference",
+          "description": "Scan Reference ID."
+        },
+        {
+          "title": "Launch Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "launchedDate",
+          "description": " The date and time when the scan was launched in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
+        },
+        {
+          "title": "Type",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "VULNERABILITY",
+            "DISCOVERY"
+          ],
+          "name": "type",
+          "description": "The scan type: VULNERABILITY or DISCOVERY"
+        },
+        {
+          "title": "Mode",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "ONDEMAND",
+            "SCHEDULED",
+            "API"
+          ],
+          "name": "mode",
+          "description": "The mode of the scan: ONDEMAND, SCHEDULED or API."
+        },
+        {
+          "title": "Status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "SUBMITTED",
+            "RUNNING",
+            "FINISHED",
+            "TIME_LIMIT_EXCEEDED",
+            "SCAN_NOT_LAUNCHED",
+            "SCANNER_NOT_AVAILABLE",
+            "ERROR",
+            "CANCELED"
+          ],
+          "name": "status",
+          "description": "The status of the scan: SUBMITTED, RUNNING, FINISHED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, ERROR or CANCELED"
+        },
+        {
+          "title": "Authentication Status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "NONE",
+            "NOT_USED",
+            "SUCCESSFUL",
+            "FAILED",
+            "PARTIAL"
+          ],
+          "name": "authStatus",
+          "description": " Indicates the status of the authentication record: NONE, NOT_USED, SUCCESSFUL, FAILED or PARTIAL"
+        },
+        {
+          "title": "Result Status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "NOT_USED",
+            "NO_HOST_ALIVE",
+            "NO_WEB_SERVICE",
+            "PROCESSING",
+            "SCAN_RESULTS_INVALID",
+            "TIME_LIMIT_REACHED",
+            "SERVICE_ERROR",
+            "SCAN_INTERNAL_ERROR",
+            "SUCCESSFUL",
+            "TO_BE_PROCESSED",
+            "TIME_LIMIT_EXCEEDED",
+            "SCAN_NOT_LAUNCHED",
+            "SCANNER_NOT_AVAILABLE",
+            "SUBMITTED",
+            "RUNNING",
+            "FINISHED",
+            "CANCELED",
+            "CANCELING ERROR",
+            "DELETED"
+          ],
+          "name": "resultsStatus",
+          "description": "(keyword) The status of the scan: NOT_USED, NO_HOST_ALIVE, NO_WEB_SERVICE, PROCESSING, SCAN_RESULTS_INVALID, TIME_LIMIT_REACHED, SERVICE_ERROR, SCAN_INTERNAL_ERROR, SUCCESSFUL, TO_BE_PROCESSED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, SUBMITTED, RUNNING, FINISHED, CANCELED, CANCELING ERROR, DELETED."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Get Scan Details",
+      "operation": "get_scan_details",
+      "description": "View details for a scan on a web application which is in the user’s scope. Want to find a scan ID ",
+      "category": "investigation",
+      "annotation": "get_scan_details",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "WasScan": {
+                "target": {
+                  "webApp": {
+                    "name": "",
+                    "url": "",
+                    "id": ""
+                  },
+                  "cancelOption": "",
+                  "scannerAppliance": {
+                    "type": ""
+                  }
+                },
+                "launchedBy": {
+                  "id": "",
+                  "lastName": "",
+                  "firstName": "",
+                  "username": ""
+                },
+                "sendMail": "",
+                "reference": "",
+                "multi": "",
+                "mode": "",
+                "id": "",
+                "profile": {
+                  "id": "",
+                  "name": ""
+                },
+                "status": "",
+                "launchedDate": "",
+                "type": "",
+                "enableWAFAuth": "",
+                "scanDuration": "",
+                "options": {
+                  "count": "",
+                  "list": [
+                    {
+                      "WasScanOption": {
+                        "value": "",
+                        "name": ""
+                      }
+                    }
+                  ]
+                },
+                "name": "",
+                "summary": {
+                  "nbRequests": "",
+                  "resultsStatus": "",
+                  "authStatus": "",
+                  "linksCrawled": "",
+                  "crawlDuration": "",
+                  "os": "",
+                  "testDuration": ""
+                }
+              }
+            }
+          ],
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Scan ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "scan_id",
+          "description": "The scan ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Launch Scans",
+      "operation": "launch_scans",
+      "description": "Enhanced the ability to support large web application scanning programs by adding the ability to scan any number of web applications as a Multi-Scan through API.",
+      "category": "investigation",
+      "annotation": "launch_scans",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "WasScan": {
+                "id": ""
+              }
+            }
+          ],
+          "responseCode": "",
+          "count": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Scan Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "scan_name",
+          "description": "The scan name."
+        },
+        {
+          "title": "Scan Type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "VULNERABILITY",
+            "DISCOVERY"
+          ],
+          "name": "scan_type",
+          "description": " The scan type: VULNERABILITY or DISCOVERY"
+        },
+        {
+          "title": "Web App ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "web_app_id",
+          "description": "Specify the web application ID to include it in the scan"
+        },
+        {
+          "title": "Target Web App Auth Record",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": true,
+          "name": "web_app_auth_record",
+          "description": "Set to true to use the default web application's authentication record for the scan."
+        },
+        {
+          "title": "Target Scanner Appliance Type",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "option": [
+            "EXTERNAL",
+            "INTERNAL",
+            "scannerTags"
+          ],
+          "name": "scanner_appliance",
+          "description": "The type of scanner appliance used for the scan: EXTERNAL or INTERNAL or scannerTags"
+        },
+        {
+          "title": "Scan Profile ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "profile_id",
+          "description": "The name of the option profile that includes scan settings. The service provides the profile “Initial WAS Options” and we recommend this to get started."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Retrieve Scan Status",
+      "operation": "retrieve_scan_status",
+      "description": "Retrieve the status of a scan on a web application which is in the user’s scope.",
+      "category": "investigation",
+      "annotation": "retrieve_scan_status",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "WasScan": {
+                "id": "",
+                "status": "",
+                "summary": {
+                  "authStatus": "",
+                  "resultsStatus": ""
+                }
+              }
+            }
+          ],
+          "responseCode": "",
+          "count": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Scan ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "scan_id",
+          "description": "The scan ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Retrieve Scan Results",
+      "operation": "retrieve_scan_results",
+      "description": "Retrieve the results of a scan on a web application which is in the user’s scope.",
+      "category": "investigation",
+      "annotation": "retrieve_scan_results",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "WasScan": {
+                "sendMail": "",
+                "reference": "",
+                "endScanDate": "",
+                "sensitiveContents": {
+                  "count": ""
+                },
+                "multi": "",
+                "stats": {
+                  "byGroup": {
+                    "count": ""
+                  },
+                  "byOwasp": {
+                    "count": ""
+                  },
+                  "global": {
+                    "nbVulnsLevel4": "",
+                    "nbIgsLevel2": "",
+                    "nbVulnsLevel2": "",
+                    "nbScsLevel4": "",
+                    "nbVulnsLevel1": "",
+                    "nbVulnsLevel3": "",
+                    "nbIgsTotal": "",
+                    "nbIgsLevel4": "",
+                    "nbScsLevel3": "",
+                    "nbIgsLevel1": "",
+                    "nbVulnsLevel5": "",
+                    "nbScsLevel2": "",
+                    "nbScsTotal": "",
+                    "nbScsLevel5": "",
+                    "nbIgsLevel5": "",
+                    "nbScsLevel1": "",
+                    "nbIgsLevel3": "",
+                    "nbVulnsTotal": ""
+                  },
+                  "byWasc": {
+                    "count": ""
+                  }
+                },
+                "target": {
+                  "cancelOption": "",
+                  "webApp": {
+                    "url": "",
+                    "name": "",
+                    "id": ""
+                  },
+                  "scannerAppliance": {
+                    "type": ""
+                  }
+                },
+                "igs": {
+                  "count": "",
+                  "list": [
+                    {
+                      "WasScanIg": {
+                        "qid": "",
+                        "data": {
+                          "base64": "",
+                          "value": ""
+                        },
+                        "title": ""
+                      }
+                    }
+                  ]
+                },
+                "vulns": {
+                  "count": ""
+                },
+                "id": "",
+                "launchedDate": "",
+                "enableWAFAuth": "",
+                "name": "",
+                "options": {
+                  "count": "",
+                  "list": [
+                    {
+                      "WasScanOption": {
+                        "value": "",
+                        "name": ""
+                      }
+                    }
+                  ]
+                },
+                "status": "",
+                "scanDuration": "",
+                "launchedBy": {
+                  "firstName": "",
+                  "id": "",
+                  "lastName": "",
+                  "username": ""
+                },
+                "type": "",
+                "mode": "",
+                "summary": {
+                  "nbRequests": "",
+                  "linksCrawled": "",
+                  "authStatus": "",
+                  "crawlDuration": "",
+                  "resultsStatus": "",
+                  "os": "",
+                  "testDuration": ""
+                },
+                "profile": {
+                  "name": "",
+                  "id": ""
+                }
+              }
+            }
+          ],
+          "responseCode": "",
+          "count": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Scan ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "scan_id",
+          "description": "The scan ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Delete Scan",
+      "operation": "delete_scan",
+      "description": "Delete an existing scan on a web application which is in the user’s scope. You can delete any scan in your account that is not running.",
+      "category": "investigation",
+      "annotation": "delete_scan",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "WasScan": {
+                "id": ""
+              }
+            }
+          ],
+          "responseCode": "",
+          "count": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Scan ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "scan_id",
+          "description": "The scan ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Count Web Applications",
+      "operation": "count_webapp",
+      "description": "Returns the total number of web applications in the user’s account. Input elements are optional and are used to filter the number of web applications included in the count.",
+      "category": "investigation",
+      "annotation": "count_webapp",
+      "output_schema": {
+        "ServiceResponse": {
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "id",
+          "description": " Web application ID"
+        },
+        {
+          "title": "Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Web application name."
+        },
+        {
+          "title": "URL",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "url",
+          "description": "The URL of web application"
+        },
+        {
+          "title": "Scheduled",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": false,
+          "name": "isScheduled",
+          "description": " A flag indicating whether a scan is scheduled for web application."
+        },
+        {
+          "title": "Scanned",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": false,
+          "name": "isScanned",
+          "description": " A flag indicating whether the web application has been scanned."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Search Web Applications",
+      "operation": "search_webapp",
+      "description": "Returns a list of web applications which are in the user’s scope.",
+      "category": "investigation",
+      "annotation": "search_webapp",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "WebApp": {
+                "createdDate": "",
+                "name": "",
+                "updatedDate": "",
+                "tags": {
+                  "count": ""
+                },
+                "url": "",
+                "owner": {
+                  "id": ""
+                },
+                "id": ""
+              }
+            }
+          ],
+          "hasMoreRecords": "",
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Scan ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "id",
+          "description": "The scan ID."
+        },
+        {
+          "title": "Scan Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "The scan name."
+        },
+        {
+          "title": "URL",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "url",
+          "description": "The URL of web application."
+        },
+        {
+          "title": "Tags ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "tags.id",
+          "description": "Tag ID assigned to web application."
+        },
+        {
+          "title": "Tags Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "tags.name",
+          "description": "Tag name assigned to web application."
+        },
+        {
+          "title": "Created Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "createdDate",
+          "description": "The date when the web application was created in WAS, in UTC date/time format."
+        },
+        {
+          "title": "Updated Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "updatedDate",
+          "description": "The date when the web application was last updated in WAS, in UTC date/time format."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Get Web Application Details",
+      "operation": "get_webapp_details",
+      "description": "Returns details for a web application which is in the user’s scope. The web application screenshot, when available, is included in the output in the “screenshot” element as a base64 encoded binary string. This string needs to be converted before a user can decode and view the image file (.png). In order to encode screenshots we use urlSafe Base 64 encoding solution like other elements in our API. Therefore these characters will be replaced in the base64 contents: / will be replaced with _ + will be replaced with -",
+      "category": "investigation",
+      "annotation": "get_webapp_details",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "WebApp": {
+                "config": {},
+                "isScheduled": "",
+                "url": "",
+                "createdDate": "",
+                "createdBy": {
+                  "firstName": "",
+                  "id": "",
+                  "lastName": "",
+                  "username": ""
+                },
+                "updatedDate": "",
+                "defaultScanner": {
+                  "type": ""
+                },
+                "owner": {
+                  "firstName": "",
+                  "id": "",
+                  "lastName": "",
+                  "username": ""
+                },
+                "postDataBlacklist": {
+                  "count": ""
+                },
+                "dnsOverrides": {
+                  "count": ""
+                },
+                "authRecords": {
+                  "count": ""
+                },
+                "malwareMonitoring": "",
+                "urlBlacklist": {
+                  "count": ""
+                },
+                "scope": "",
+                "name": "",
+                "useSitemap": "",
+                "malwareNotification": "",
+                "logoutRegexList": {
+                  "count": ""
+                },
+                "id": "",
+                "useRobots": "",
+                "comments": {
+                  "count": ""
+                },
+                "urlWhitelist": {
+                  "count": ""
+                },
+                "crawlingScripts": {
+                  "count": ""
+                },
+                "scannerLocked": "",
+                "tags": {
+                  "count": ""
+                },
+                "updatedBy": {
+                  "firstName": "",
+                  "id": "",
+                  "lastName": "",
+                  "username": ""
+                },
+                "attributes": {
+                  "count": ""
+                }
+              }
+            }
+          ],
+          "responseCode": "",
+          "count": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Scan ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "scan_id",
+          "description": "The scan ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Create Web Application",
+      "operation": "create_web_app",
+      "description": "Create new web application",
+      "category": "investigation",
+      "annotation": "create_web_app",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "WebApp": {
+                "createdDate": "",
+                "isScheduled": "",
+                "name": "",
+                "updatedDate": "",
+                "urlWhitelist": {
+                  "count": ""
+                },
+                "tags": {
+                  "count": ""
+                },
+                "crawlingScripts": {
+                  "count": ""
+                },
+                "postDataBlacklist": {
+                  "count": ""
+                },
+                "comments": {
+                  "count": ""
+                },
+                "config": {},
+                "updatedBy": {
+                  "id": "",
+                  "lastName": "",
+                  "firstName": "",
+                  "username": ""
+                },
+                "malwareMonitoring": "",
+                "logoutRegexList": {
+                  "count": ""
+                },
+                "url": "",
+                "attributes": {
+                  "count": ""
+                },
+                "createdBy": {
+                  "id": "",
+                  "lastName": "",
+                  "firstName": "",
+                  "username": ""
+                },
+                "owner": {
+                  "id": "",
+                  "lastName": "",
+                  "firstName": "",
+                  "username": ""
+                },
+                "scope": "",
+                "useSitemap": "",
+                "malwareNotification": "",
+                "defaultScanner": {
+                  "type": ""
+                },
+                "id": "",
+                "useRobots": "",
+                "authRecords": {
+                  "count": "",
+                  "list": [
+                    {
+                      "WebAppAuthRecord": {
+                        "id": "",
+                        "name": ""
+                      }
+                    }
+                  ]
+                },
+                "dnsOverrides": {
+                  "count": ""
+                },
+                "scannerLocked": "",
+                "urlBlacklist": {
+                  "count": ""
+                }
+              }
+            }
+          ],
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Web App Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Name of the web application."
+        },
+        {
+          "title": "Web App URL",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "url",
+          "description": "URL of the web application."
+        },
+        {
+          "title": "Web App Auth Record ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "id",
+          "description": "Web App Auth Record ID of the web application."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Delete Web Applications",
+      "operation": "delete_webapp",
+      "description": "Delete the web application for the specified ID",
+      "category": "investigation",
+      "annotation": "delete_webapp",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "WebApp": {
+                "id": ""
+              }
+            }
+          ],
+          "count": 1,
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "App ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "app_id",
+          "description": "The scan ID."
+        }
+      ],
+      "enabled": true
+    }
+  ]
+}
+
