@@ -9,7 +9,7 @@
   "cs_compatible": true,
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "",
+  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/qualys-web-application-scanning-was/352/qualys-web-application-scanning-was-v1-0-0",
   "configuration": {
     "fields": [
       {
