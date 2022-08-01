@@ -7,7 +7,7 @@ Cloud solution for continuous web app discovery and detection of vulnerabilities
 Connector Version: 1.0.0
 
 
-Authored By: Community
+Authored By: Parag Khatavkar (Fortinet SE)
 
 Certified: No
 ## Installing the connector
