@@ -2,9 +2,9 @@
   "description": "Cloud solution for continuous web app discovery and detection of vulnerabilities and misconfigurations.",
   "category": "Web Application Scanner",
   "name": "qualys-web-application-scanner",
-  "label": "Qualys Web Application Scan",
+  "label": "Qualys Web Application Scanning(WAS)",
   "version": "1.0.0",
-  "publisher": "Fortinet",
+  "publisher": "Community",
   "cs_approved": false,
   "cs_compatible": true,
   "icon_small_name": "small.png",
@@ -16,8 +16,8 @@
         "title": "Server URL",
         "name": "server_url",
         "type": "text",
-        "tooltip": "",
-        "description": "",
+        "tooltip": "IP address or Hostname of the Qualys Web Application endpoint server to which you will connect and perform the automated operations.",
+        "description": "IP address or Hostname of the Qualys Web Application endpoint server to which you will connect and perform the automated operations.",
         "required": true,
         "editable": true,
         "visible": true
@@ -131,7 +131,7 @@
           "visible": true,
           "type": "datetime",
           "name": "launchedDate",
-          "description": " The date and time when the scan was launched in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
+          "description": "The date and time when the scan was launched in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
         },
         {
           "title": "Type",
@@ -193,7 +193,7 @@
             "PARTIAL"
           ],
           "name": "authStatus",
-          "description": " Indicates the status of the authentication record: NONE, NOT_USED, SUCCESSFUL, FAILED or PARTIAL"
+          "description": "Indicates the status of the authentication record: NONE, NOT_USED, SUCCESSFUL, FAILED or PARTIAL"
         },
         {
           "title": "Result Status",
