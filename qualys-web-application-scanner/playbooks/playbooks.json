@@ -2,45 +2,45 @@
   "type": "workflow_collections",
   "data": [
     {
-      "uuid": "a0f8e12b-818b-4af4-af90-a102677e0a29",
+      "uuid": "957d2dba-fccc-447e-9d91-662dc916be78",
       "@type": "WorkflowCollection",
-      "name": "Sample - Qualys Web Scan - 1.0.0",
+      "name": "Sample - Qualys Web Application Scanning(WAS) - 2.0.0",
       "description": "Cloud solution for continuous web app discovery and detection of vulnerabilities and misconfigurations.",
       "visible": true,
       "image": null,
       "recordTags": [
-        "Qualyswas",
-        "qualyswas"
+        "Qualys",
+        "qualys-web-application-scanner"
       ],
       "workflows": [
         {
           "@type": "Workflow",
-          "uuid": "bd75faf5-8902-4b37-a128-897331c442d1",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "79f6a68a-904d-4a3c-8b4a-fbc9b6220249",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "Returns the total number of scans in the user\u2019s account. Input elements are optional and are used to filter the number of scans included in the count. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission API Access. The count includes scans in the user's scope",
-          "name": "Scan Count",
-          "tag": "#Qualys Web Scan",
+          "description": "Returns the total number of scans in the user\u2019s account. Input parameters are optional and are used to filter the number of scans included in the count. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission API Access. The count includes scans in the user's scope.",
+          "name": "Get Scan Count",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/420433f9-c49b-4912-a6d0-693319785e4d",
+          "triggerStep": "/api/3/workflow_steps/9ab1d96b-8aab-435d-a2f1-985e6ba7a2ba",
           "steps": [
             {
-              "uuid": "420433f9-c49b-4912-a6d0-693319785e4d",
+              "uuid": "9ab1d96b-8aab-435d-a2f1-985e6ba7a2ba",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "60dcdddb-67e4-4d41-b486-9bd5a803ee68",
-                "title": "Qualys Web Scan: Scan Count",
+                "route": "8f3e2e97-d27c-4a8e-aabd-54c1f26b1afe",
+                "title": "Qualys Web Application Scanning(WAS): Get Scan Count",
                 "resources": [
                   "alerts"
                 ],
@@ -59,22 +59,19 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "0932ea6f-8c57-4307-b87b-687912e2f40c",
+              "uuid": "747042f6-9fef-41c6-882b-77c9a49d2214",
               "@type": "WorkflowStep",
-              "name": "Scan Count",
+              "name": "Get Scan Count",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": [],
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "scan_count",
-                "operationTitle": "Scan Count",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Get Scan Count"
               },
               "left": "188",
               "top": "120",
@@ -84,43 +81,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "24c80639-1563-47fb-b68d-c5ae89a20e2d",
+              "uuid": "ae5f24b4-6331-4465-8fb4-971c7b7540b6",
               "label": null,
               "isExecuted": false,
-              "name": "Start-> Scan Count",
-              "sourceStep": "/api/3/workflow_steps/420433f9-c49b-4912-a6d0-693319785e4d",
-              "targetStep": "/api/3/workflow_steps/0932ea6f-8c57-4307-b87b-687912e2f40c"
+              "name": "Start-> Get Scan Count",
+              "sourceStep": "/api/3/workflow_steps/9ab1d96b-8aab-435d-a2f1-985e6ba7a2ba",
+              "targetStep": "/api/3/workflow_steps/747042f6-9fef-41c6-882b-77c9a49d2214"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "311493b2-cc9d-435f-9e52-6b36ee9b75a4",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "79d1d759-c64b-44d2-92da-ec8938c9f302",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "Returns a list of scans on web applications which are in the user\u2019s scope",
+          "description": "Returns a list of scans on web applications which are in the user\u2019s scope. Input parameters are optional and act as filters. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission API Access. The output includes scans in the user's scope.",
           "name": "Search Scans",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/0cef9fd7-6d13-4d13-8fff-daaa2c99f8c9",
+          "triggerStep": "/api/3/workflow_steps/56ee9e47-a6d4-4ae6-906b-2d967971ff21",
           "steps": [
             {
-              "uuid": "0cef9fd7-6d13-4d13-8fff-daaa2c99f8c9",
+              "uuid": "56ee9e47-a6d4-4ae6-906b-2d967971ff21",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "c9fca8a0-6dbf-46d9-8dd8-c6ad79c56963",
-                "title": "Qualys Web Scan: Search Scans",
+                "route": "ba2bddd3-84f1-491b-b98a-833e1b63a0e5",
+                "title": "Qualys Web Application Scanning(WAS): Search Scans",
                 "resources": [
                   "alerts"
                 ],
@@ -139,22 +136,19 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "891b48fd-bd80-48e2-9fca-0d4244bd1007",
+              "uuid": "a8385345-a4ee-4a9e-9428-d562182dd64c",
               "@type": "WorkflowStep",
               "name": "Search Scans",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": [],
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "search_scans",
-                "operationTitle": "Search Scans",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Search Scans"
               },
               "left": "188",
               "top": "120",
@@ -164,43 +158,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "87f1115f-d793-4910-b622-f440e4642b34",
+              "uuid": "afa21c2e-39ea-4d1b-a091-c7b12b06496a",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Search Scans",
-              "sourceStep": "/api/3/workflow_steps/0cef9fd7-6d13-4d13-8fff-daaa2c99f8c9",
-              "targetStep": "/api/3/workflow_steps/891b48fd-bd80-48e2-9fca-0d4244bd1007"
+              "sourceStep": "/api/3/workflow_steps/56ee9e47-a6d4-4ae6-906b-2d967971ff21",
+              "targetStep": "/api/3/workflow_steps/a8385345-a4ee-4a9e-9428-d562182dd64c"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "5cd1a095-33c5-4339-96e8-8077371d62a6",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "0bd27cae-3af1-460a-b4f6-6d1e1f088d6e",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "View details for a scan on a web application which is in the user\u2019s scope. Want to find a scan ID ",
+          "description": "Retrieves details for a scan on a web application which is in the user\u2019s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d. The output includes authentication records in the user's scope.",
           "name": "Get Scan Details",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/ea561938-6367-4f31-82c7-0ae0b66f572c",
+          "triggerStep": "/api/3/workflow_steps/4f0d54cd-cde2-4a44-b471-53763f0d179f",
           "steps": [
             {
-              "uuid": "ea561938-6367-4f31-82c7-0ae0b66f572c",
+              "uuid": "4f0d54cd-cde2-4a44-b471-53763f0d179f",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "dd6a74ce-6e97-4d0c-ad0b-3f1f97e92867",
-                "title": "Qualys Web Scan: Get Scan Details",
+                "route": "717597c2-b37e-4476-860f-e89f765b5438",
+                "title": "Qualys Web Application Scanning(WAS): Get Scan Details",
                 "resources": [
                   "alerts"
                 ],
@@ -219,22 +213,19 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "727c575b-177b-43aa-a5ca-86d7c861da2c",
+              "uuid": "bf594f88-04b1-4c54-b91f-b76426c5b7f1",
               "@type": "WorkflowStep",
               "name": "Get Scan Details",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": [],
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "get_scan_details",
-                "operationTitle": "Get Scan Details",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Get Scan Details"
               },
               "left": "188",
               "top": "120",
@@ -244,43 +235,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "ab3a84ab-63f4-4e6e-a815-3c5e1baae5dd",
+              "uuid": "9799d107-7729-4670-9fb0-4a49f0c3b656",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Get Scan Details",
-              "sourceStep": "/api/3/workflow_steps/ea561938-6367-4f31-82c7-0ae0b66f572c",
-              "targetStep": "/api/3/workflow_steps/727c575b-177b-43aa-a5ca-86d7c861da2c"
+              "sourceStep": "/api/3/workflow_steps/4f0d54cd-cde2-4a44-b471-53763f0d179f",
+              "targetStep": "/api/3/workflow_steps/bf594f88-04b1-4c54-b91f-b76426c5b7f1"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "2fad9a21-c501-40d6-8ff6-fb9ab1162bab",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "d622ac93-5fae-44b3-a255-5b4d950f889a",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "Enhanced the ability to support large web application scanning programs by adding the ability to scan any number of web applications as a Multi-Scan through API.",
+          "description": "Launches web application scanning. You can scan any number of web applications as a Multi-Scan through API. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d and \u201cLaunch WAS Scan\u201c. The output includes scan targets in the user's scope.",
           "name": "Launch Scans",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/c14f7115-34e9-4a80-8572-96d5daccb728",
+          "triggerStep": "/api/3/workflow_steps/c2a439bb-9439-4cf9-992e-7b65412c64d4",
           "steps": [
             {
-              "uuid": "c14f7115-34e9-4a80-8572-96d5daccb728",
+              "uuid": "c2a439bb-9439-4cf9-992e-7b65412c64d4",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "6b0f6db5-eb1e-415d-9af7-36a16196fea1",
-                "title": "Qualys Web Scan: Launch Scans",
+                "route": "8cf81652-65b0-4f9b-bd87-8c5a3b96245f",
+                "title": "Qualys Web Application Scanning(WAS): Launch Scans",
                 "resources": [
                   "alerts"
                 ],
@@ -299,24 +290,21 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "41344773-df86-465e-9eab-9861ce13e437",
+              "uuid": "569ea105-5bbc-47ec-8788-785e60ff54b5",
               "@type": "WorkflowStep",
               "name": "Launch Scans",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": {
                   "web_app_auth_record": true
                 },
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "launch_scans",
-                "operationTitle": "Launch Scans",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Launch Scans"
               },
               "left": "188",
               "top": "120",
@@ -326,43 +314,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "7791d948-226c-4439-a126-c41eb773e188",
+              "uuid": "23167ca6-2510-4bbd-bd9f-929979f99ea1",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Launch Scans",
-              "sourceStep": "/api/3/workflow_steps/c14f7115-34e9-4a80-8572-96d5daccb728",
-              "targetStep": "/api/3/workflow_steps/41344773-df86-465e-9eab-9861ce13e437"
+              "sourceStep": "/api/3/workflow_steps/c2a439bb-9439-4cf9-992e-7b65412c64d4",
+              "targetStep": "/api/3/workflow_steps/569ea105-5bbc-47ec-8788-785e60ff54b5"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "43114577-58b0-415d-83d2-9179402a0d2b",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "75c5f12f-8bc6-4dc0-9988-8036d5772ca0",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
           "description": "Retrieve the status of a scan on a web application which is in the user\u2019s scope.",
           "name": "Retrieve Scan Status",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/fbf0cc2e-0b8a-4b6b-ad6a-12ee53daf469",
+          "triggerStep": "/api/3/workflow_steps/af1b84ad-5443-476b-b995-e6dce050371c",
           "steps": [
             {
-              "uuid": "fbf0cc2e-0b8a-4b6b-ad6a-12ee53daf469",
+              "uuid": "af1b84ad-5443-476b-b995-e6dce050371c",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "26ddf20c-98ad-42f9-b585-14d23c684430",
-                "title": "Qualys Web Scan: Retrieve Scan Status",
+                "route": "31950ba4-7ded-4aa4-ad76-e0e30de86bdc",
+                "title": "Qualys Web Application Scanning(WAS): Retrieve Scan Status",
                 "resources": [
                   "alerts"
                 ],
@@ -381,22 +369,19 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "500f1fcf-c267-4cb2-9c60-b07981e3f202",
+              "uuid": "9a6d0ab5-2f2e-400d-8ce7-3eb4d6838fad",
               "@type": "WorkflowStep",
               "name": "Retrieve Scan Status",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": [],
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "retrieve_scan_status",
-                "operationTitle": "Retrieve Scan Status",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Retrieve Scan Status"
               },
               "left": "188",
               "top": "120",
@@ -406,43 +391,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "e463a2d8-cf19-494c-b7b1-259dd14c646c",
+              "uuid": "d1928220-b786-4b5e-9194-be49516144c1",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Retrieve Scan Status",
-              "sourceStep": "/api/3/workflow_steps/fbf0cc2e-0b8a-4b6b-ad6a-12ee53daf469",
-              "targetStep": "/api/3/workflow_steps/500f1fcf-c267-4cb2-9c60-b07981e3f202"
+              "sourceStep": "/api/3/workflow_steps/af1b84ad-5443-476b-b995-e6dce050371c",
+              "targetStep": "/api/3/workflow_steps/9a6d0ab5-2f2e-400d-8ce7-3eb4d6838fad"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "a7d74b39-537a-49f0-9995-670d5822b216",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "02e80a20-2ef1-4c04-9c0e-c236db3a919d",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "Retrieve the results of a scan on a web application which is in the user\u2019s scope.",
+          "description": "Retrieve the results of a scan on a web application which is in the user\u2019s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d. The output includes scan targets in the user's scope.",
           "name": "Retrieve Scan Results",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/f5a18abd-28fb-4800-abc2-ea2e8ae14557",
+          "triggerStep": "/api/3/workflow_steps/6138a611-8b14-4585-b7fc-8ce9c03a73da",
           "steps": [
             {
-              "uuid": "f5a18abd-28fb-4800-abc2-ea2e8ae14557",
+              "uuid": "6138a611-8b14-4585-b7fc-8ce9c03a73da",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "0aa6b51f-d79a-4519-bda6-a811f22f19eb",
-                "title": "Qualys Web Scan: Retrieve Scan Results",
+                "route": "1a626645-5886-4345-b36c-0b2bef49da89",
+                "title": "Qualys Web Application Scanning(WAS): Retrieve Scan Results",
                 "resources": [
                   "alerts"
                 ],
@@ -461,22 +446,19 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "011f5cac-cf3f-4bf3-bfb1-7d1f392d5ae9",
+              "uuid": "45b73934-35ad-4e64-bdce-8c7ab98dacbd",
               "@type": "WorkflowStep",
               "name": "Retrieve Scan Results",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": [],
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "retrieve_scan_results",
-                "operationTitle": "Retrieve Scan Results",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Retrieve Scan Results"
               },
               "left": "188",
               "top": "120",
@@ -486,43 +468,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "be225ab5-05c4-4b9e-8d2a-16097141560d",
+              "uuid": "2ed71323-f0de-476f-82d4-b51a6f31fa4f",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Retrieve Scan Results",
-              "sourceStep": "/api/3/workflow_steps/f5a18abd-28fb-4800-abc2-ea2e8ae14557",
-              "targetStep": "/api/3/workflow_steps/011f5cac-cf3f-4bf3-bfb1-7d1f392d5ae9"
+              "sourceStep": "/api/3/workflow_steps/6138a611-8b14-4585-b7fc-8ce9c03a73da",
+              "targetStep": "/api/3/workflow_steps/45b73934-35ad-4e64-bdce-8c7ab98dacbd"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "628e9176-37e4-4c8e-85f7-d8a89d48af65",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "7b4722b1-d7cf-499d-bc82-3de4d6f92383",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "Delete an existing scan on a web application which is in the user\u2019s scope. You can delete any scan in your account that is not running.",
+          "description": "Delete an existing scan on a web application which is in the user\u2019s scope. You can delete any scan in your account that is not running. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d and \u201dDelete WAS scan\u201d permission. The scan to be deleted must be within the user\u2019s scope.",
           "name": "Delete Scan",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/5a3b645d-097a-416c-aeb8-a518e5e90071",
+          "triggerStep": "/api/3/workflow_steps/0694abdf-271e-46ab-b991-ca331a7d5fca",
           "steps": [
             {
-              "uuid": "5a3b645d-097a-416c-aeb8-a518e5e90071",
+              "uuid": "0694abdf-271e-46ab-b991-ca331a7d5fca",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "9b788ad7-3399-4306-a474-07b9c497631d",
-                "title": "Qualys Web Scan: Delete Scan",
+                "route": "30201a50-0d74-4b17-b51f-b10d20ceee57",
+                "title": "Qualys Web Application Scanning(WAS): Delete Scan",
                 "resources": [
                   "alerts"
                 ],
@@ -541,22 +523,19 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "394fe46d-0681-4556-bb46-f0fc424a3dc2",
+              "uuid": "3253766f-a4eb-4055-894d-fd9b9dfa375d",
               "@type": "WorkflowStep",
               "name": "Delete Scan",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": [],
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "delete_scan",
-                "operationTitle": "Delete Scan",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Delete Scan"
               },
               "left": "188",
               "top": "120",
@@ -566,43 +545,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "e87f4ba2-c40c-4b24-968e-1de318147262",
+              "uuid": "519a22bd-c439-4fd1-8b18-21501b208e52",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Delete Scan",
-              "sourceStep": "/api/3/workflow_steps/5a3b645d-097a-416c-aeb8-a518e5e90071",
-              "targetStep": "/api/3/workflow_steps/394fe46d-0681-4556-bb46-f0fc424a3dc2"
+              "sourceStep": "/api/3/workflow_steps/0694abdf-271e-46ab-b991-ca331a7d5fca",
+              "targetStep": "/api/3/workflow_steps/3253766f-a4eb-4055-894d-fd9b9dfa375d"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "30a88ef8-6945-4a24-9326-7501dcba77f0",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "fef05c8b-0196-439c-bfdb-5293fe9efd1d",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "Returns the total number of web applications in the user\u2019s account. Input elements are optional and are used to filter the number of web applications included in the count.",
+          "description": "Returns the total number of web applications in the user\u2019s account. Input parameters are optional and are used to filter the number of web applications included in the count. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d. The count includes web applications in the user's scope.",
           "name": "Count Web Applications",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/759b7e65-e193-48c0-8b20-d4a7bdaf1831",
+          "triggerStep": "/api/3/workflow_steps/4011fcdd-1df6-4330-ac55-d787bd286ca0",
           "steps": [
             {
-              "uuid": "759b7e65-e193-48c0-8b20-d4a7bdaf1831",
+              "uuid": "4011fcdd-1df6-4330-ac55-d787bd286ca0",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "9993bb97-52ff-42ae-8fc5-9f5a64a98d9f",
-                "title": "Qualys Web Scan: Count Web Applications",
+                "route": "bac7ef2d-11a0-47f7-8022-374ff2095d13",
+                "title": "Qualys Web Application Scanning(WAS): Count Web Applications",
                 "resources": [
                   "alerts"
                 ],
@@ -621,25 +600,22 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "e9545b92-9105-49f6-9fbf-dd9e29ae8fa3",
+              "uuid": "15449585-6fa5-4520-961b-481b3d617778",
               "@type": "WorkflowStep",
               "name": "Count Web Applications",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": {
                   "isScheduled": false,
                   "isScanned": false
                 },
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "count_webapp",
-                "operationTitle": "Count Web Applications",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Count Web Applications"
               },
               "left": "188",
               "top": "120",
@@ -649,43 +625,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "c2bcb7b1-7b1c-483c-9c06-ad576c735138",
+              "uuid": "1ae360e4-43bb-4f67-917c-234bb2c5aa2e",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Count Web Applications",
-              "sourceStep": "/api/3/workflow_steps/759b7e65-e193-48c0-8b20-d4a7bdaf1831",
-              "targetStep": "/api/3/workflow_steps/e9545b92-9105-49f6-9fbf-dd9e29ae8fa3"
+              "sourceStep": "/api/3/workflow_steps/4011fcdd-1df6-4330-ac55-d787bd286ca0",
+              "targetStep": "/api/3/workflow_steps/15449585-6fa5-4520-961b-481b3d617778"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "c64f3c34-9fde-4325-84ea-b199a59d1089",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "a0bb0a22-653d-4ee3-9ee4-89b864ca9aa8",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "Returns a list of web applications which are in the user\u2019s scope.",
+          "description": "Returns a list of web applications which are in the user\u2019s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d. The output includes web applications in the user's scope.",
           "name": "Search Web Applications",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/36201944-bc95-43e4-bd25-04ab1754e923",
+          "triggerStep": "/api/3/workflow_steps/7aa4bd45-319b-41e9-8d04-605f4231845c",
           "steps": [
             {
-              "uuid": "36201944-bc95-43e4-bd25-04ab1754e923",
+              "uuid": "7aa4bd45-319b-41e9-8d04-605f4231845c",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "18745a86-6c2e-4279-81f0-6d7d2840f7e8",
-                "title": "Qualys Web Scan: Search Web Applications",
+                "route": "d696f36a-c5bf-4afa-8972-7bfe5e0eed13",
+                "title": "Qualys Web Application Scanning(WAS): Search Web Applications",
                 "resources": [
                   "alerts"
                 ],
@@ -704,22 +680,23 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "85fbbb31-4915-4ce2-bfa8-b8bfae4ef921",
+              "uuid": "88654d4f-80f1-414e-b6be-72048e1e6f04",
               "@type": "WorkflowStep",
               "name": "Search Web Applications",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
-                "params": [],
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "params": {
+                  "isScheduled": false,
+                  "isScanned": false,
+                  "verbose": false
+                },
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "search_webapp",
-                "operationTitle": "Search Web Applications",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Search Web Applications"
               },
               "left": "188",
               "top": "120",
@@ -729,43 +706,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "5b2f5ddf-fce2-44f4-8345-d65f789f6d3f",
+              "uuid": "4695e6a4-4892-4178-8401-b1fecfdaa5ed",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Search Web Applications",
-              "sourceStep": "/api/3/workflow_steps/36201944-bc95-43e4-bd25-04ab1754e923",
-              "targetStep": "/api/3/workflow_steps/85fbbb31-4915-4ce2-bfa8-b8bfae4ef921"
+              "sourceStep": "/api/3/workflow_steps/7aa4bd45-319b-41e9-8d04-605f4231845c",
+              "targetStep": "/api/3/workflow_steps/88654d4f-80f1-414e-b6be-72048e1e6f04"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "ca534ea9-99b6-4dbe-8b2e-7ce642483bb2",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "b3260767-8620-45a8-b179-f79b7fc93b53",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "Returns details for a web application which is in the user\u2019s scope. The web application screenshot, when available, is included in the output in the \u201cscreenshot\u201d element as a base64 encoded binary string. This string needs to be converted before a user can decode and view the image file (.png). In order to encode screenshots we use urlSafe Base 64 encoding solution like other elements in our API. Therefore these characters will be replaced in the base64 contents: / will be replaced with _ + will be replaced with -",
+          "description": "Returns details for a web application which is in the user\u2019s scope. The web application screenshot, when available, is included in the output in the \u201cscreenshot\u201d element as a base64 encoded binary string. This string needs to be converted before a user can decode and view the image file (.jpg). Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d. The output includes web applications in the user's scope.",
           "name": "Get Web Application Details",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/c7330b26-495c-4cbc-9e85-b2014f8c8e2a",
+          "triggerStep": "/api/3/workflow_steps/13f1b805-582b-436d-bff4-b5094845c5b9",
           "steps": [
             {
-              "uuid": "c7330b26-495c-4cbc-9e85-b2014f8c8e2a",
+              "uuid": "13f1b805-582b-436d-bff4-b5094845c5b9",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "85358442-e022-4fd3-9da0-cbcb3f72a93e",
-                "title": "Qualys Web Scan: Get Web Application Details",
+                "route": "d5241fe2-7714-4816-bfec-39125817ed8c",
+                "title": "Qualys Web Application Scanning(WAS): Get Web Application Details",
                 "resources": [
                   "alerts"
                 ],
@@ -784,22 +761,19 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "8191c058-4b82-412c-ab3e-22194769a877",
+              "uuid": "bf268dab-4716-43c1-8381-9a7978e9f9a9",
               "@type": "WorkflowStep",
               "name": "Get Web Application Details",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": [],
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "get_webapp_details",
-                "operationTitle": "Get Web Application Details",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Get Web Application Details"
               },
               "left": "188",
               "top": "120",
@@ -809,43 +783,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "11bd29c6-3a89-476c-ad41-be9917c8eeae",
+              "uuid": "31bd5591-aa19-4bbb-9e0e-38184f8ab8e1",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Get Web Application Details",
-              "sourceStep": "/api/3/workflow_steps/c7330b26-495c-4cbc-9e85-b2014f8c8e2a",
-              "targetStep": "/api/3/workflow_steps/8191c058-4b82-412c-ab3e-22194769a877"
+              "sourceStep": "/api/3/workflow_steps/13f1b805-582b-436d-bff4-b5094845c5b9",
+              "targetStep": "/api/3/workflow_steps/bf268dab-4716-43c1-8381-9a7978e9f9a9"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "035a959f-f10b-4947-a5ad-8d22be41492a",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "772926b6-4fc0-4591-8a86-4df0b909762c",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "Create new web application",
+          "description": "Creates a new web application. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d and WAS Asset Permission \u201cCreate Web Asset\u201d. The output includes web applications in the user's scope. If you want to add postman collection files, you must have the 'ENABLE_POSTMAN_COLLECTION' option enabled for your account. If this option is not enabled, contact Qualys Support to enable this option. When only \u201cname\u201d and \u201curl\u201d are specified:\n- Scope defaults to ALL. The scanner will crawl all directories and subdirectories of the starting URL.\n- No default option profile is specified. An option profile must be specified for each scan.\n- No authentication records are defined. No form or server authentication will be performed.\n- No blacklists or whitelists are defined. All directories and sub-directories of the starting URL will be scanned.",
           "name": "Create Web Application",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/f8541cd4-e088-4aaf-8eca-f97b53634958",
+          "triggerStep": "/api/3/workflow_steps/c8673338-17b8-4339-8818-e49f3431a3c1",
           "steps": [
             {
-              "uuid": "f8541cd4-e088-4aaf-8eca-f97b53634958",
+              "uuid": "c8673338-17b8-4339-8818-e49f3431a3c1",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "28598871-40d7-4e86-ae02-d7bedd09b372",
-                "title": "Qualys Web Scan: Create Web Application",
+                "route": "79d632b5-9819-432c-b567-15d7dac1870f",
+                "title": "Qualys Web Application Scanning(WAS): Create Web Application",
                 "resources": [
                   "alerts"
                 ],
@@ -864,22 +838,19 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "b9038428-92b6-4664-a458-71613fe04f57",
+              "uuid": "e34e0a46-9d1d-435b-a97f-4bfe14512bda",
               "@type": "WorkflowStep",
               "name": "Create Web Application",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": [],
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "create_web_app",
-                "operationTitle": "Create Web Application",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Create Web Application"
               },
               "left": "188",
               "top": "120",
@@ -889,43 +860,43 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "2b9a48f7-fd1d-4d2e-a06a-5175c926fdd1",
+              "uuid": "7f1ba5fe-a994-4b7c-9d1d-5c71cd8b0163",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Create Web Application",
-              "sourceStep": "/api/3/workflow_steps/f8541cd4-e088-4aaf-8eca-f97b53634958",
-              "targetStep": "/api/3/workflow_steps/b9038428-92b6-4664-a458-71613fe04f57"
+              "sourceStep": "/api/3/workflow_steps/c8673338-17b8-4339-8818-e49f3431a3c1",
+              "targetStep": "/api/3/workflow_steps/e34e0a46-9d1d-435b-a97f-4bfe14512bda"
             }
           ]
         },
         {
           "@type": "Workflow",
-          "uuid": "1bdd873c-744e-47bc-8c7b-3406fcbe02df",
-          "collection": "/api/3/workflow_collections/a0f8e12b-818b-4af4-af90-a102677e0a29",
+          "uuid": "d2b99bb4-1092-4797-b205-9717e9bbf3ed",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
           "triggerLimit": null,
-          "description": "Delete the web application for the specified ID",
+          "description": "Delete a web application configuration in your account. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d and WAS Asset Permission \u201cDelete Web Asset\u201d. The web application to be deleted must be within the user\u2019s scope.",
           "name": "Delete Web Applications",
-          "tag": "#Qualys Web Scan",
+          "tag": "#Qualys Web Application Scanning(WAS)",
           "recordTags": [
-            "Qualyswas",
-            "qualyswas"
+            "Qualys",
+            "qualys-web-application-scanner"
           ],
           "isActive": false,
           "debug": false,
           "singleRecordExecution": false,
           "parameters": [],
           "synchronous": false,
-          "triggerStep": "/api/3/workflow_steps/f4d5f239-a6a9-4735-b279-e6b522f851e3",
+          "triggerStep": "/api/3/workflow_steps/533e464c-75de-4156-b10d-93addd0bd37d",
           "steps": [
             {
-              "uuid": "f4d5f239-a6a9-4735-b279-e6b522f851e3",
+              "uuid": "533e464c-75de-4156-b10d-93addd0bd37d",
               "@type": "WorkflowStep",
               "name": "Start",
               "description": null,
               "status": null,
               "arguments": {
-                "route": "58b93285-18d7-4150-9511-c22f4b2f55fe",
-                "title": "Qualys Web Scan: Delete Web Applications",
+                "route": "d32eebce-7f41-4104-9484-fd9803f71288",
+                "title": "Qualys Web Application Scanning(WAS): Delete Web Applications",
                 "resources": [
                   "alerts"
                 ],
@@ -944,22 +915,19 @@
               "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
             },
             {
-              "uuid": "e4ca7a50-3ab6-425a-8e31-cf9d0dce7c6d",
+              "uuid": "a4e2f19f-a3d7-4a42-9607-b40f3a4b9a96",
               "@type": "WorkflowStep",
               "name": "Delete Web Applications",
               "description": null,
               "status": null,
               "arguments": {
-                "name": "Qualys Web Scan",
+                "name": "Qualys Web Application Scanning(WAS)",
                 "config": "''",
                 "params": [],
-                "version": "1.0.0",
-                "connector": "qualyswas",
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
                 "operation": "delete_webapp",
-                "operationTitle": "Delete Web Applications",
-                "step_variables": {
-                  "output_data": "{{vars.result}}"
-                }
+                "operationTitle": "Delete Web Applications"
               },
               "left": "188",
               "top": "120",
@@ -969,12 +937,403 @@
           "routes": [
             {
               "@type": "WorkflowRoute",
-              "uuid": "76f1c1ce-f073-492f-9559-42bdb8286de9",
+              "uuid": "a42cd771-3624-4b74-882b-9f24c9e46b8e",
               "label": null,
               "isExecuted": false,
               "name": "Start-> Delete Web Applications",
-              "sourceStep": "/api/3/workflow_steps/f4d5f239-a6a9-4735-b279-e6b522f851e3",
-              "targetStep": "/api/3/workflow_steps/e4ca7a50-3ab6-425a-8e31-cf9d0dce7c6d"
+              "sourceStep": "/api/3/workflow_steps/533e464c-75de-4156-b10d-93addd0bd37d",
+              "targetStep": "/api/3/workflow_steps/a4e2f19f-a3d7-4a42-9607-b40f3a4b9a96"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "35d7f0e0-76ff-4795-95bc-3b0f93bef424",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
+          "triggerLimit": null,
+          "description": "Returns a list of reports which are in the user\u2019s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d. The output includes reports in the user's scope.",
+          "name": "Search Reports",
+          "tag": "#Qualys Web Application Scanning(WAS)",
+          "recordTags": [
+            "Qualys",
+            "qualys-web-application-scanner"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/6c79c5dc-9b06-4a31-bbc2-6c1250642af2",
+          "steps": [
+            {
+              "uuid": "6c79c5dc-9b06-4a31-bbc2-6c1250642af2",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "20206052-4c54-4796-adb3-e74d4cf4d996",
+                "title": "Qualys Web Application Scanning(WAS): Search Reports",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "4a0f1a6b-ebce-4fd1-8682-fd545515abdd",
+              "@type": "WorkflowStep",
+              "name": "Search Reports",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Qualys Web Application Scanning(WAS)",
+                "config": "''",
+                "params": [],
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
+                "operation": "search_reports",
+                "operationTitle": "Search Reports"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "fa1d7ea9-25c4-4abb-9945-3c3e353713d3",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Search Reports",
+              "sourceStep": "/api/3/workflow_steps/6c79c5dc-9b06-4a31-bbc2-6c1250642af2",
+              "targetStep": "/api/3/workflow_steps/4a0f1a6b-ebce-4fd1-8682-fd545515abdd"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "576dca3f-b16f-46a8-a4d5-9989112eed12",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
+          "triggerLimit": null,
+          "description": "Download a report which is in the user\u2019s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d. The output includes reports in the user's scope.",
+          "name": "Download Report",
+          "tag": "#Qualys Web Application Scanning(WAS)",
+          "recordTags": [
+            "Qualys",
+            "qualys-web-application-scanner"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/7bc136a8-1fdb-4a97-8a9c-4fc06fed2f26",
+          "steps": [
+            {
+              "uuid": "7bc136a8-1fdb-4a97-8a9c-4fc06fed2f26",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "beb001f4-3602-4141-a30b-b2dac4d0d4dd",
+                "title": "Qualys Web Application Scanning(WAS): Download Report",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "9c4f8081-3448-4969-845f-6e42bc9d36fa",
+              "@type": "WorkflowStep",
+              "name": "Download Report",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Qualys Web Application Scanning(WAS)",
+                "config": "''",
+                "params": [],
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
+                "operation": "download_report",
+                "operationTitle": "Download Report"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "a7fb8657-5793-4c76-a370-7735ca98b13f",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Download Report",
+              "sourceStep": "/api/3/workflow_steps/7bc136a8-1fdb-4a97-8a9c-4fc06fed2f26",
+              "targetStep": "/api/3/workflow_steps/9c4f8081-3448-4969-845f-6e42bc9d36fa"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "0e71f46d-3552-4439-b52b-0f416354705c",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
+          "triggerLimit": null,
+          "description": "Returns a list of option profiles which are in the user\u2019s scope. Action logs are not included in the output. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d. The Output includes option profiles in the user's scope. Input parameters are optional and act as filters.",
+          "name": "Search Option Profiles",
+          "tag": "#Qualys Web Application Scanning(WAS)",
+          "recordTags": [
+            "Qualys",
+            "qualys-web-application-scanner"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/0872509f-e69f-4025-a788-bdbc3a11b257",
+          "steps": [
+            {
+              "uuid": "0872509f-e69f-4025-a788-bdbc3a11b257",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "910c1d21-ed8b-417c-8345-657016c5d8f5",
+                "title": "Qualys Web Application Scanning(WAS): Search Option Profiles",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "43b563c6-96a3-4f6a-a7a8-b366abf1e12d",
+              "@type": "WorkflowStep",
+              "name": "Search Option Profiles",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Qualys Web Application Scanning(WAS)",
+                "config": "''",
+                "params": {
+                  "usedByWebApps": false,
+                  "usedBySchedules": false
+                },
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
+                "operation": "search_option_profiles",
+                "operationTitle": "Search Option Profiles"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "ba6ee7e9-b841-41f9-9e47-c4591a8f3714",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Search Option Profiles",
+              "sourceStep": "/api/3/workflow_steps/0872509f-e69f-4025-a788-bdbc3a11b257",
+              "targetStep": "/api/3/workflow_steps/43b563c6-96a3-4f6a-a7a8-b366abf1e12d"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "82712de8-48f2-43dd-94ad-c4d773bb8c6b",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
+          "triggerLimit": null,
+          "description": "Returns a list of scheduled scans on web applications which are in the user\u2019s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d. The output includes scan targets in the user's scope. Input parameters are optional and act as filters.",
+          "name": "Search Schedule",
+          "tag": "#Qualys Web Application Scanning(WAS)",
+          "recordTags": [
+            "Qualys",
+            "qualys-web-application-scanner"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/1bce03ee-5890-4a61-858a-ff56d27e3003",
+          "steps": [
+            {
+              "uuid": "1bce03ee-5890-4a61-858a-ff56d27e3003",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "ae35fdc4-0635-42d3-96ef-7225616dc064",
+                "title": "Qualys Web Application Scanning(WAS): Search Schedule",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "8bf0b6c6-2868-4de4-9b04-d0347ee5eee6",
+              "@type": "WorkflowStep",
+              "name": "Search Schedule",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Qualys Web Application Scanning(WAS)",
+                "config": "''",
+                "params": {
+                  "active": false,
+                  "multi": false
+                },
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
+                "operation": "search_schedule",
+                "operationTitle": "Search Schedule"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "32ce0b03-386a-47ba-a71f-ead2caff280f",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Search Schedule",
+              "sourceStep": "/api/3/workflow_steps/1bce03ee-5890-4a61-858a-ff56d27e3003",
+              "targetStep": "/api/3/workflow_steps/8bf0b6c6-2868-4de4-9b04-d0347ee5eee6"
+            }
+          ]
+        },
+        {
+          "@type": "Workflow",
+          "uuid": "65e700d8-e709-42c0-9ca4-5b612c0312cc",
+          "collection": "/api/3/workflow_collections/957d2dba-fccc-447e-9d91-662dc916be78",
+          "triggerLimit": null,
+          "description": "Retrieves details for a scheduled scan on a web application which is in the user\u2019s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission \u201cAPI Access\u201d. The output includes schedules in the user's scope.",
+          "name": "Get Schedule Details",
+          "tag": "#Qualys Web Application Scanning(WAS)",
+          "recordTags": [
+            "Qualys",
+            "qualys-web-application-scanner"
+          ],
+          "isActive": false,
+          "debug": false,
+          "singleRecordExecution": false,
+          "parameters": [],
+          "synchronous": false,
+          "triggerStep": "/api/3/workflow_steps/4e73d279-89a1-4d09-ac24-e2f7cbfa80eb",
+          "steps": [
+            {
+              "uuid": "4e73d279-89a1-4d09-ac24-e2f7cbfa80eb",
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "route": "ecf58528-54b5-4e48-a45f-8214754c89bd",
+                "title": "Qualys Web Application Scanning(WAS): Get Schedule Details",
+                "resources": [
+                  "alerts"
+                ],
+                "inputVariables": [],
+                "step_variables": {
+                  "input": {
+                    "records": "{{vars.input.records[0]}}"
+                  }
+                },
+                "singleRecordExecution": false,
+                "noRecordExecution": true,
+                "executeButtonText": "Execute"
+              },
+              "left": "20",
+              "top": "20",
+              "stepType": "/api/3/workflow_step_types/f414d039-bb0d-4e59-9c39-a8f1e880b18a"
+            },
+            {
+              "uuid": "a926ebdf-4ad4-49c7-82fb-2e325d23e29f",
+              "@type": "WorkflowStep",
+              "name": "Get Schedule Details",
+              "description": null,
+              "status": null,
+              "arguments": {
+                "name": "Qualys Web Application Scanning(WAS)",
+                "config": "''",
+                "params": [],
+                "version": "2.0.0",
+                "connector": "qualys-web-application-scanner",
+                "operation": "get_schedule_details",
+                "operationTitle": "Get Schedule Details"
+              },
+              "left": "188",
+              "top": "120",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "uuid": "079ae9d9-b7fe-4251-93b7-e043a6a2080e",
+              "label": null,
+              "isExecuted": false,
+              "name": "Start-> Get Schedule Details",
+              "sourceStep": "/api/3/workflow_steps/4e73d279-89a1-4d09-ac24-e2f7cbfa80eb",
+              "targetStep": "/api/3/workflow_steps/a926ebdf-4ad4-49c7-82fb-2e325d23e29f"
             }
           ]
         }
