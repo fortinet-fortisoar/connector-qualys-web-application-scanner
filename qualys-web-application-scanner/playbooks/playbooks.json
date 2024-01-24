@@ -5,7 +5,7 @@
       "uuid": "957d2dba-fccc-447e-9d91-662dc916be78",
       "@type": "WorkflowCollection",
       "name": "Sample - Qualys Web Application Scanning(WAS) - 2.0.0",
-      "description": "Cloud solution for continuous web app discovery and detection of vulnerabilities and misconfigurations.",
+      "description": "Qualys Web Application Scanning (WAS) is a robust cloud-based application security product that continuously discovers, detects, and catalogs web applications and APIs.",
       "visible": true,
       "image": null,
       "recordTags": [

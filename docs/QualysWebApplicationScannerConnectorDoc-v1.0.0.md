@@ -1,5 +1,5 @@
 ## About the connector
-Cloud solution for continuous web app discovery and detection of vulnerabilities and misconfigurations.
+Qualys Web Application Scanning (WAS) is a robust cloud-based application security product that continuously discovers, detects, and catalogs web applications and APIs.
 <p>This document provides information about the Qualys Web Application Scanning(WAS) Connector, which facilitates automated interactions, with a Qualys Web Application Scanning(WAS) server using FortiSOAR&trade; playbooks. Add the Qualys Web Application Scanning(WAS) Connector as a step in FortiSOAR&trade; playbooks and perform automated operations with Qualys Web Application Scanning(WAS).</p>
 
 ### Version information

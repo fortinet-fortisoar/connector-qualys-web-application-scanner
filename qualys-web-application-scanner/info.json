@@ -1,6 +1,6 @@
 {
-  "description": "Cloud solution for continuous web app discovery and detection of vulnerabilities and misconfigurations.",
-  "category": "Web Application Scanner",
+  "description": "Qualys Web Application Scanning (WAS) is a robust cloud-based application security product that continuously discovers, detects, and catalogs web applications and APIs.",
+  "category": "Vulnerability and Risk Management",
   "name": "qualys-web-application-scanner",
   "label": "Qualys Web Application Scanning(WAS)",
   "version": "2.0.0",
