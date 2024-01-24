@@ -53,7 +53,6 @@ class QualysWAS:
                     logger.error(err_msg)
                     raise ConnectorError(err_msg)
             # response.raise_for_status()
-            return
         except requests.exceptions.SSLError as e:
             logger.exception('{}'.format(e))
             raise ConnectorError('{}'.format(self.error_msg['ssl_error']))
