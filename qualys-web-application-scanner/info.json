@@ -77,6 +77,7 @@
           "visible": true,
           "type": "text",
           "name": "id",
+          "tooltip": "Specify the scan ID.",
           "description": "Specify the scan ID."
         },
         {
@@ -86,6 +87,7 @@
           "visible": true,
           "type": "text",
           "name": "name",
+          "tooltip": "Specify the scan name.",
           "description": "Specify the scan name."
         },
         {
@@ -95,6 +97,7 @@
           "visible": true,
           "type": "text",
           "name": "webApp.name",
+          "tooltip": "Specify the name of the web application being scanned.",
           "description": "Specify the name of the web application being scanned."
         },
         {
@@ -104,6 +107,7 @@
           "visible": true,
           "type": "text",
           "name": "webApp.id",
+          "tooltip": "Specify the ID of the web application being scanned.",
           "description": "Specify the ID of the web application being scanned."
         },
         {
@@ -113,6 +117,7 @@
           "visible": true,
           "type": "text",
           "name": "webApp.tags.id",
+          "tooltip": "Specify the tag ID assigned to web application being scanned.",
           "description": "Specify the tag ID assigned to web application being scanned."
         },
         {
@@ -122,6 +127,7 @@
           "visible": true,
           "type": "text",
           "name": "reference",
+          "tooltip": "Specify the scan reference ID.",
           "description": "Specify the scan reference ID."
         },
         {
@@ -131,6 +137,7 @@
           "visible": true,
           "type": "datetime",
           "name": "launchedDate",
+          "tooltip": "Specify the date and time to return all the scan which was launched after specified date and time in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)",
           "description": "Specify the date and time to return all the scan which was launched after specified date and time in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
         },
         {
@@ -290,6 +297,7 @@
           "visible": true,
           "type": "text",
           "name": "id",
+          "tooltip": "Specify the scan ID.",
           "description": "Specify the scan ID."
         },
         {
@@ -299,7 +307,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "Specify the scan name."
+          "description": "Specify the scan name.",
+          "tooltip": "Specify the scan name."
         },
         {
           "title": "Web App Name",
@@ -308,7 +317,8 @@
           "visible": true,
           "type": "text",
           "name": "webApp.name",
-          "description": "Specify the name of the web application being scanned."
+          "description": "Specify the name of the web application being scanned.",
+          "tooltip": "Specify the name of the web application being scanned."
         },
         {
           "title": "Web App id",
@@ -317,7 +327,8 @@
           "visible": true,
           "type": "text",
           "name": "webApp.id",
-          "description": "Specify the ID of the web application being scanned."
+          "description": "Specify the ID of the web application being scanned.",
+          "tooltip": "Specify the ID of the web application being scanned."
         },
         {
           "title": "Web App Tag ID",
@@ -326,7 +337,8 @@
           "visible": true,
           "type": "text",
           "name": "webApp.tags.id",
-          "description": "Specify the tag ID assigned to web application being scanned."
+          "description": "Specify the tag ID assigned to web application being scanned.",
+          "tooltip": "Specify the tag ID assigned to web application being scanned."
         },
         {
           "title": "Reference",
@@ -335,7 +347,8 @@
           "visible": true,
           "type": "text",
           "name": "reference",
-          "description": "Specify the scan reference ID."
+          "description": "Specify the scan reference ID.",
+          "tooltip": "Specify the scan reference ID."
         },
         {
           "title": "Launch Date",
@@ -344,7 +357,8 @@
           "visible": true,
           "type": "datetime",
           "name": "launchedDate",
-          "description": "Specify the date and time to return all the scan which was launched after specified date and time in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
+          "description": "Specify the date and time to return all the scan which was launched after specified date and time in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)",
+          "tooltip": "Specify the date and time to return all the scan which was launched after specified date and time in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
         },
         {
           "title": "Type",
@@ -448,7 +462,8 @@
           "visible": true,
           "type": "integer",
           "name": "limitResults",
-          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
         },
         {
           "title": "Offset",
@@ -457,7 +472,8 @@
           "visible": true,
           "type": "integer",
           "name": "startFromOffset",
-          "description": "Specify the first item to return by index. The default is 1."
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
         }
       ],
       "enabled": true
@@ -540,7 +556,8 @@
           "visible": true,
           "type": "text",
           "name": "scan_id",
-          "description": "Specify the scan ID."
+          "description": "Specify the scan ID.",
+          "tooltip": "Specify the scan ID."
         }
       ],
       "enabled": true
@@ -572,7 +589,8 @@
           "visible": true,
           "type": "text",
           "name": "scan_name",
-          "description": "Specify the scan name."
+          "description": "Specify the scan name.",
+          "tooltip": "Specify the scan name."
         },
         {
           "title": "Scan Type",
@@ -594,7 +612,8 @@
           "visible": true,
           "type": "integer",
           "name": "web_app_id",
-          "description": "Specify the ID of the web application to include it in the scan"
+          "description": "Specify the ID of the web application to include it in the scan",
+          "tooltip": "Specify the ID of the web application to include it in the scan"
         },
         {
           "title": "Target Web App Auth Record",
@@ -604,7 +623,8 @@
           "type": "checkbox",
           "value": true,
           "name": "web_app_auth_record",
-          "description": "Set this to true to use the default web application's authentication record for the scan."
+          "description": "Set this to true to use the default web application's authentication record for the scan.",
+          "tooltip": "Set this to true to use the default web application's authentication record for the scan."
         },
         {
           "title": "Target Scanner Appliance Type",
@@ -627,7 +647,8 @@
           "visible": true,
           "type": "integer",
           "name": "profile_id",
-          "description": "Specify the name of the option profile that includes scan settings. This parameter is required unless the target has a default option profile."
+          "description": "Specify the name of the option profile that includes scan settings. This parameter is required unless the target has a default option profile.",
+          "tooltip": "Specify the name of the option profile that includes scan settings. This parameter is required unless the target has a default option profile."
         }
       ],
       "enabled": true
@@ -664,7 +685,8 @@
           "visible": true,
           "type": "text",
           "name": "scan_id",
-          "description": "Specify the scan ID."
+          "description": "Specify the scan ID.",
+          "tooltip": "Specify the scan ID."
         }
       ],
       "enabled": true
@@ -800,7 +822,8 @@
           "visible": true,
           "type": "text",
           "name": "scan_id",
-          "description": "Specify the scan ID."
+          "description": "Specify the scan ID.",
+          "tooltip": "Specify the scan ID."
         }
       ],
       "enabled": true
@@ -832,7 +855,8 @@
           "visible": true,
           "type": "integer",
           "name": "scan_id",
-          "description": "Specify the scan ID."
+          "description": "Specify the scan ID.",
+          "tooltip": "Specify the scan ID."
         }
       ],
       "enabled": true
@@ -857,7 +881,8 @@
           "visible": true,
           "type": "text",
           "name": "id",
-          "description": "Specify the Web application ID."
+          "description": "Specify the Web application ID.",
+          "tooltip": "Specify the Web application ID."
         },
         {
           "title": "Name",
@@ -866,7 +891,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "Specify the Web application name."
+          "description": "Specify the Web application name.",
+          "tooltip": "Specify the Web application name."
         },
         {
           "title": "URL",
@@ -875,7 +901,8 @@
           "visible": true,
           "type": "text",
           "name": "url",
-          "description": "Specify the URL of web application."
+          "description": "Specify the URL of web application.",
+          "tooltip": "Specify the URL of web application."
         },
         {
           "title": "Tags ID",
@@ -884,7 +911,8 @@
           "visible": true,
           "type": "text",
           "name": "tags.id",
-          "description": "Specify the tag ID assigned to web application."
+          "description": "Specify the tag ID assigned to web application.",
+          "tooltip": "Specify the tag ID assigned to web application."
         },
         {
           "title": "Tags Name",
@@ -893,7 +921,8 @@
           "visible": true,
           "type": "text",
           "name": "tags.name",
-          "description": "Specify the tag name assigned to web application."
+          "description": "Specify the tag name assigned to web application.",
+          "tooltip": "Specify the tag name assigned to web application."
         },
         {
           "title": "Created Date",
@@ -902,7 +931,8 @@
           "visible": true,
           "type": "datetime",
           "name": "createdDate",
-          "description": "Specify the date and time to return all the web application which was created in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the web application which was created in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was created in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Updated Date",
@@ -911,7 +941,8 @@
           "visible": true,
           "type": "datetime",
           "name": "updatedDate",
-          "description": "Specify the date and time to return all the web application which was last updated in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the web application which was last updated in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was last updated in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Scheduled",
@@ -921,7 +952,8 @@
           "type": "checkbox",
           "value": false,
           "name": "isScheduled",
-          "description": "Set this to true to indicate that a scan is scheduled for web application."
+          "description": "Set this to true to indicate that a scan is scheduled for web application.",
+          "tooltip": "Set this to true to indicate that a scan is scheduled for web application."
         },
         {
           "title": "Scanned",
@@ -931,7 +963,8 @@
           "type": "checkbox",
           "value": false,
           "name": "isScanned",
-          "description": "Set this to true to indicate that the web application has been scanned."
+          "description": "Set this to true to indicate that the web application has been scanned.",
+          "tooltip": "Set this to true to indicate that the web application has been scanned."
         },
         {
           "title": "Last Scan Status",
@@ -959,7 +992,8 @@
           "visible": true,
           "type": "datetime",
           "name": "lastScan.date",
-          "description": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format."
         }
       ],
       "enabled": true
@@ -1002,7 +1036,8 @@
           "visible": true,
           "type": "text",
           "name": "id",
-          "description": "Specify the Web application ID."
+          "description": "Specify the Web application ID.",
+          "tooltip": "Specify the Web application ID."
         },
         {
           "title": "Name",
@@ -1011,7 +1046,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "Specify the Web application name."
+          "description": "Specify the Web application name.",
+          "tooltip": "Specify the Web application name."
         },
         {
           "title": "URL",
@@ -1020,7 +1056,8 @@
           "visible": true,
           "type": "text",
           "name": "url",
-          "description": "Specify the URL of web application."
+          "description": "Specify the URL of web application.",
+          "tooltip": "Specify the URL of web application."
         },
         {
           "title": "Tags ID",
@@ -1029,7 +1066,8 @@
           "visible": true,
           "type": "text",
           "name": "tags.id",
-          "description": "Specify the tag ID assigned to web application."
+          "description": "Specify the tag ID assigned to web application.",
+          "tooltip": "Specify the tag ID assigned to web application."
         },
         {
           "title": "Tags Name",
@@ -1038,7 +1076,8 @@
           "visible": true,
           "type": "text",
           "name": "tags.name",
-          "description": "Specify the tag name assigned to web application."
+          "description": "Specify the tag name assigned to web application.",
+          "tooltip": "Specify the tag name assigned to web application."
         },
         {
           "title": "Created Date",
@@ -1047,7 +1086,8 @@
           "visible": true,
           "type": "datetime",
           "name": "createdDate",
-          "description": "Specify the date and time to return all the web application which was created in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the web application which was created in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was created in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Updated Date",
@@ -1056,7 +1096,8 @@
           "visible": true,
           "type": "datetime",
           "name": "updatedDate",
-          "description": "Specify the date and time to return all the web application which was last updated in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the web application which was last updated in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was last updated in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Scheduled",
@@ -1066,7 +1107,8 @@
           "type": "checkbox",
           "value": false,
           "name": "isScheduled",
-          "description": "Set this to true to indicate that a scan is scheduled for web application."
+          "description": "Set this to true to indicate that a scan is scheduled for web application.",
+          "tooltip": "Set this to true to indicate that a scan is scheduled for web application."
         },
         {
           "title": "Scanned",
@@ -1076,7 +1118,8 @@
           "type": "checkbox",
           "value": false,
           "name": "isScanned",
-          "description": "Set this to true to indicate that the web application has been scanned."
+          "description": "Set this to true to indicate that the web application has been scanned.",
+          "tooltip": "Set this to true to indicate that the web application has been scanned."
         },
         {
           "title": "Last Scan Status",
@@ -1104,7 +1147,8 @@
           "visible": true,
           "type": "datetime",
           "name": "lastScan.date",
-          "description": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Limit",
@@ -1113,7 +1157,8 @@
           "visible": true,
           "type": "integer",
           "name": "limitResults",
-          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
         },
         {
           "title": "Offset",
@@ -1122,7 +1167,8 @@
           "visible": true,
           "type": "integer",
           "name": "startFromOffset",
-          "description": "Specify the first item to return by index. The default is 1."
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
         },
         {
         "title": "Verbose",
@@ -1132,7 +1178,8 @@
         "editable": true,
         "visible": true,
         "value": false,
-        "description": "Set this to true to indicate whether the list of tags associated with the web application should be listed or not."
+        "description": "Set this to true to indicate whether the list of tags associated with the web application should be listed or not.",
+        "tooltip": "Set this to true to indicate whether the list of tags associated with the web application should be listed or not."
       }
       ],
       "enabled": true
@@ -1227,7 +1274,8 @@
           "visible": true,
           "type": "text",
           "name": "id",
-          "description": "Specify the Web application ID."
+          "description": "Specify the Web application ID.",
+          "tooltip": "Specify the Web application ID."
         }
       ],
       "enabled": true
@@ -1330,7 +1378,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "Specify the name of the web application."
+          "description": "Specify the name of the web application.",
+          "tooltip": "Specify the name of the web application."
         },
         {
           "title": "Web App URL",
@@ -1339,7 +1388,8 @@
           "visible": true,
           "type": "text",
           "name": "url",
-          "description": "Specify the URL of the web application."
+          "description": "Specify the URL of the web application.",
+          "tooltip": "Specify the URL of the web application."
         },
         {
           "title": "Web App Auth Record ID",
@@ -1348,7 +1398,8 @@
           "visible": true,
           "type": "integer",
           "name": "id",
-          "description": "Specify the web app auth record ID of the web application."
+          "description": "Specify the web app auth record ID of the web application.",
+          "tooltip": "Specify the web app auth record ID of the web application."
         }
       ],
       "enabled": true
@@ -1380,7 +1431,8 @@
           "visible": true,
           "type": "integer",
           "name": "app_id",
-          "description": "Specify the Web application ID."
+          "description": "Specify the Web application ID.",
+          "tooltip": "Specify the Web application ID."
         }
       ],
       "enabled": true
@@ -1400,7 +1452,8 @@
           "visible": true,
           "type": "text",
           "name": "id",
-          "description": "Specify the report ID."
+          "description": "Specify the report ID.",
+          "tooltip": "Specify the report ID."
         },
         {
           "title": "Name",
@@ -1409,7 +1462,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "Specify the report name."
+          "description": "Specify the report name.",
+          "tooltip": "Specify the report name."
         },
         {
           "title": "Tags ID",
@@ -1418,7 +1472,8 @@
           "visible": true,
           "type": "text",
           "name": "tags.id",
-          "description": "Specify the ID of the tag associated with the report."
+          "description": "Specify the ID of the tag associated with the report.",
+          "tooltip": "Specify the ID of the tag associated with the report."
         },
         {
           "title": "Tags Name",
@@ -1427,7 +1482,8 @@
           "visible": true,
           "type": "text",
           "name": "tags.name",
-          "description": "Specify the name of the tag associated with the report."
+          "description": "Specify the name of the tag associated with the report.",
+          "tooltip": "Specify the name of the tag associated with the report."
         },
         {
           "title": "Creation Date",
@@ -1436,7 +1492,8 @@
           "visible": true,
           "type": "datetime",
           "name": "creationDate",
-          "description": "Specify the date and time to return all the report which was created after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the report which was created after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the report which was created after specified date and time in UTC date/time format."
         },
         {
           "title": "Type",
@@ -1495,7 +1552,8 @@
           "visible": true,
           "type": "integer",
           "name": "limitResults",
-          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
         },
         {
           "title": "Offset",
@@ -1504,7 +1562,8 @@
           "visible": true,
           "type": "integer",
           "name": "startFromOffset",
-          "description": "Specify the first item to return by index. The default is 1."
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
         }
       ],
       "enabled": true
@@ -1524,7 +1583,8 @@
           "visible": true,
           "type": "integer",
           "name": "report_id",
-          "description": "Specify the Report ID."
+          "description": "Specify the Report ID.",
+          "tooltip": "Specify the Report ID."
         }
       ],
       "enabled": true
@@ -1544,7 +1604,8 @@
           "visible": true,
           "type": "text",
           "name": "id",
-          "description": "Specify the option profile ID."
+          "description": "Specify the option profile ID.",
+          "tooltip": "Specify the option profile ID."
         },
         {
           "title": "Name",
@@ -1553,7 +1614,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "Specify the option profile name."
+          "description": "Specify the option profile name.",
+          "tooltip": "Specify the option profile name."
         },
         {
           "title": "Tags ID",
@@ -1562,7 +1624,8 @@
           "visible": true,
           "type": "text",
           "name": "tags.id",
-          "description": "Specify the ID of the tag associated with the option profile."
+          "description": "Specify the ID of the tag associated with the option profile.",
+          "tooltip": "Specify the ID of the tag associated with the option profile."
         },
         {
           "title": "Tags Name",
@@ -1571,7 +1634,8 @@
           "visible": true,
           "type": "text",
           "name": "tags.name",
-          "description": "Specify the name of the tag associated with the option profile."
+          "description": "Specify the name of the tag associated with the option profile.",
+          "tooltip": "Specify the name of the tag associated with the option profile."
         },
         {
           "title": "Created Date",
@@ -1580,7 +1644,8 @@
           "visible": true,
           "type": "datetime",
           "name": "createdDate",
-          "description": "Specify the date and time to return all the option profile which was created in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the option profile which was created in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the option profile which was created in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Updated Date",
@@ -1589,7 +1654,8 @@
           "visible": true,
           "type": "datetime",
           "name": "updatedDate",
-          "description": "Specify the date and time to return all the option profile which was last updated in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the option profile which was last updated in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the option profile which was last updated in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Used By Web Apps",
@@ -1599,7 +1665,8 @@
           "type": "checkbox",
           "value": false,
           "name": "usedByWebApps",
-          "description": "Web applications used/not used by the option profile."
+          "description": "Web applications used/not used by the option profile.",
+          "tooltip": "Web applications used/not used by the option profile."
         },
         {
           "title": "Used By Schedules",
@@ -1609,7 +1676,8 @@
           "type": "checkbox",
           "value": false,
           "name": "usedBySchedules",
-          "description": "Scan schedules used/not used by the option profile."
+          "description": "Scan schedules used/not used by the option profile.",
+          "tooltip": "Scan schedules used/not used by the option profile."
         },
         {
           "title": "Owner ID",
@@ -1618,7 +1686,8 @@
           "visible": true,
           "type": "text",
           "name": "owner.id",
-          "description": "Specify the ID of the owner who created the option profile"
+          "description": "Specify the ID of the owner who created the option profile",
+          "tooltip": "Specify the ID of the owner who created the option profile"
         },
         {
           "title": "Owner Name",
@@ -1627,7 +1696,8 @@
           "visible": true,
           "type": "text",
           "name": "owner.name",
-          "description": "Specify the full name of the user who created the option profile."
+          "description": "Specify the full name of the user who created the option profile.",
+          "tooltip": "Specify the full name of the user who created the option profile."
         },
         {
           "title": "Owner Username",
@@ -1636,7 +1706,8 @@
           "visible": true,
           "type": "text",
           "name": "owner.username",
-          "description": "Specify the username of the owner who created the option profile."
+          "description": "Specify the username of the owner who created the option profile.",
+          "tooltip": "Specify the username of the owner who created the option profile."
         },
         {
           "title": "Limit",
@@ -1645,7 +1716,8 @@
           "visible": true,
           "type": "integer",
           "name": "limitResults",
-          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
         },
         {
           "title": "Offset",
@@ -1654,7 +1726,8 @@
           "visible": true,
           "type": "integer",
           "name": "startFromOffset",
-          "description": "Specify the first item to return by index. The default is 1."
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
         }
       ],
       "enabled": true
@@ -1674,7 +1747,8 @@
           "visible": true,
           "type": "text",
           "name": "id",
-          "description": "Specify the schedule ID."
+          "description": "Specify the schedule ID.",
+          "tooltip": "Specify the schedule ID."
         },
         {
           "title": "Name",
@@ -1683,7 +1757,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "Specify the user-defined schedule name."
+          "description": "Specify the user-defined schedule name.",
+          "tooltip": "Specify the user-defined schedule name."
         },
         {
           "title": "Owner ID",
@@ -1692,7 +1767,8 @@
           "visible": true,
           "type": "text",
           "name": "owner.id",
-          "description": "Specify the ID associated with the owner who created the schedule."
+          "description": "Specify the ID associated with the owner who created the schedule.",
+          "tooltip": "Specify the ID associated with the owner who created the schedule."
         },
         {
           "title": "Created Date",
@@ -1701,7 +1777,8 @@
           "visible": true,
           "type": "datetime",
           "name": "createdDate",
-          "description": "Specify the date and time to return all the schedule which was created in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the schedule which was created in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the schedule which was created in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Updated Date",
@@ -1710,7 +1787,8 @@
           "visible": true,
           "type": "datetime",
           "name": "updatedDate",
-          "description": "Specify the date and time to return all the schedule which was last updated in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the schedule which was last updated in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the schedule which was last updated in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Active",
@@ -1720,7 +1798,8 @@
           "type": "checkbox",
           "value": false,
           "name": "active",
-          "description": "Set this to true to indicate whether the schedule is active."
+          "description": "Set this to true to indicate whether the schedule is active.",
+          "tooltip": "Set this to true to indicate whether the schedule is active."
         },
         {
           "title": "Type",
@@ -1742,7 +1821,8 @@
           "visible": true,
           "type": "text",
           "name": "webApp.name",
-          "description": "Specify the name of the web application being scanned."
+          "description": "Specify the name of the web application being scanned.",
+          "tooltip": "Specify the name of the web application being scanned."
         },
         {
           "title": "Web App ID",
@@ -1751,7 +1831,8 @@
           "visible": true,
           "type": "text",
           "name": "webApp.id",
-          "description": "Specify the ID of the web application being scanned."
+          "description": "Specify the ID of the web application being scanned.",
+          "tooltip": "Specify the ID of the web application being scanned."
         },
         {
           "title": "Web App Tag ID",
@@ -1760,7 +1841,8 @@
           "visible": true,
           "type": "text",
           "name": "webApp.tags.id",
-          "description": "Specify the ID of the tag applied to the web application being scanned."
+          "description": "Specify the ID of the tag applied to the web application being scanned.",
+          "tooltip": "Specify the ID of the tag applied to the web application being scanned."
         },
         {
           "title": "Last Scan Status",
@@ -1788,7 +1870,8 @@
           "visible": true,
           "type": "datetime",
           "name": "lastScan.launchedDate",
-          "description": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format."
+          "description": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Multi",
@@ -1798,7 +1881,8 @@
           "type": "checkbox",
           "value": false,
           "name": "multi",
-          "description": "Set this to true to indicate the scheduled scan is multiple scan."
+          "description": "Set this to true to indicate the scheduled scan is multiple scan.",
+          "tooltip": "Set this to true to indicate the scheduled scan is multiple scan."
         },
         {
           "title": "Limit",
@@ -1807,7 +1891,8 @@
           "visible": true,
           "type": "integer",
           "name": "limitResults",
-          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
         },
         {
           "title": "Offset",
@@ -1816,7 +1901,8 @@
           "visible": true,
           "type": "integer",
           "name": "startFromOffset",
-          "description": "Specify the first item to return by index. The default is 1."
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
         }
       ],
       "enabled": true
@@ -1836,7 +1922,8 @@
           "visible": true,
           "type": "text",
           "name": "schedule_id",
-          "description": "Specify the schedule ID."
+          "description": "Specify the schedule ID.",
+          "tooltip": "Specify the schedule ID."
         }
       ],
       "enabled": true
