@@ -40,10 +40,10 @@ The following automated operations can be included in playbooks and you can also
 <tr><td>Search Scans</td><td>Returns a list of scans on web applications which are in the user’s scope. Input parameters are optional and act as filters. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission API Access. The output includes scans in the user's scope.</td><td>search_scans <br/>Investigation</td></tr>
 <tr><td>Get Scan Details</td><td>Retrieves details for a scan on a web application which is in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes authentication records in the user's scope.</td><td>get_scan_details <br/>Investigation</td></tr>
 <tr><td>Launch Scans</td><td>Launches web application scanning. You can scan any number of web applications as a Multi-Scan through API. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access” and “Launch WAS Scan“. The output includes scan targets in the user's scope.</td><td>launch_scans <br/>Investigation</td></tr>
-<tr><td>Retrieve Scan Status</td><td>Retrieve the status of a scan on a web application which is in the user’s scope.</td><td>retrieve_scan_status <br/>Investigation</td></tr>
-<tr><td>Retrieve Scan Results</td><td>Retrieve the results of a scan on a web application which is in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes scan targets in the user's scope.</td><td>retrieve_scan_results <br/>Investigation</td></tr>
+<tr><td>Get Scan Status</td><td>Retrieve the status of a scan on a web application which is in the user’s scope.</td><td>retrieve_scan_status <br/>Investigation</td></tr>
+<tr><td>Get Scan Results</td><td>Retrieve the results of a scan on a web application which is in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes scan targets in the user's scope.</td><td>retrieve_scan_results <br/>Investigation</td></tr>
 <tr><td>Delete Scan</td><td>Delete an existing scan on a web application which is in the user’s scope. You can delete any scan in your account that is not running. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access” and ”Delete WAS scan” permission. The scan to be deleted must be within the user’s scope.</td><td>delete_scan <br/>Investigation</td></tr>
-<tr><td>Count Web Applications</td><td>Returns the total number of web applications in the user’s account. Input parameters are optional and are used to filter the number of web applications included in the count. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The count includes web applications in the user's scope.</td><td>count_webapp <br/>Investigation</td></tr>
+<tr><td>Get Web Applications Count</td><td>Returns the total number of web applications in the user’s account. Input parameters are optional and are used to filter the number of web applications included in the count. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The count includes web applications in the user's scope.</td><td>count_webapp <br/>Investigation</td></tr>
 <tr><td>Search Web Applications</td><td>Returns a list of web applications which are in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes web applications in the user's scope.</td><td>search_webapp <br/>Investigation</td></tr>
 <tr><td>Get Web Application Details</td><td>Returns details for a web application which is in the user’s scope. The web application screenshot, when available, is included in the output in the “screenshot” element as a base64 encoded binary string. This string needs to be converted before a user can decode and view the image file (.jpg). Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes web applications in the user's scope.</td><td>get_webapp_details <br/>Investigation</td></tr>
 <tr><td>Create Web Application</td><td>Creates a new web application. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access” and WAS Asset Permission “Create Web Asset”. The output includes web applications in the user's scope. If you want to add postman collection files, you must have the 'ENABLE_POSTMAN_COLLECTION' option enabled for your account. If this option is not enabled, contact Qualys Support to enable this option. When only “name” and “url” are specified:
@@ -249,7 +249,7 @@ The output contains the following populated JSON schema:
         "count": ""
     }
 }</pre>
-### operation: Retrieve Scan Status
+### operation: Get Scan Status
 #### Input parameters
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Scan ID</td><td>Specify the scan ID.
 </td></tr></tbody></table>
@@ -275,7 +275,7 @@ The output contains the following populated JSON schema:
         "count": ""
     }
 }</pre>
-### operation: Retrieve Scan Results
+### operation: Get Scan Results
 #### Input parameters
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Scan ID</td><td>Specify the scan ID.
 </td></tr></tbody></table>
@@ -421,7 +421,7 @@ The output contains the following populated JSON schema:
         "count": ""
     }
 }</pre>
-### operation: Count Web Applications
+### operation: Get Web Applications Count
 #### Input parameters
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>ID</td><td>Specify the Web application ID.
 </td></tr><tr><td>Name</td><td>Specify the Web application name.
@@ -767,18 +767,18 @@ The output contains the following populated JSON schema:
 ## Included playbooks
 The `Sample - qualys-web-application-scanner - 2.0.0` playbook collection comes bundled with the Qualys Web Application Scanning(WAS) connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the **Automation** > **Playbooks** section in FortiSOAR&trade; after importing the Qualys Web Application Scanning(WAS) connector.
 
-- Count Web Applications
 - Create Web Application
 - Delete Scan
 - Delete Web Applications
 - Download Report
 - Get Scan Count
 - Get Scan Details
+- Get Scan Results
+- Get Scan Status
 - Get Schedule Details
 - Get Web Application Details
+- Get Web Applications Count
 - Launch Scans
-- Retrieve Scan Results
-- Retrieve Scan Status
 - Search Option Profiles
 - Search Reports
 - Search Scans

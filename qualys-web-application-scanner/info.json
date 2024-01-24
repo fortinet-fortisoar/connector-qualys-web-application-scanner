@@ -654,7 +654,7 @@
       "enabled": true
     },
     {
-      "title": "Retrieve Scan Status",
+      "title": "Get Scan Status",
       "operation": "retrieve_scan_status",
       "description": "Retrieve the status of a scan on a web application which is in the user’s scope.",
       "category": "investigation",
@@ -692,7 +692,7 @@
       "enabled": true
     },
     {
-      "title": "Retrieve Scan Results",
+      "title": "Get Scan Results",
       "operation": "retrieve_scan_results",
       "description": "Retrieve the results of a scan on a web application which is in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes scan targets in the user's scope.",
       "category": "investigation",
@@ -862,7 +862,7 @@
       "enabled": true
     },
     {
-      "title": "Count Web Applications",
+      "title": "Get Web Applications Count",
       "operation": "count_webapp",
       "description": "Returns the total number of web applications in the user’s account. Input parameters are optional and are used to filter the number of web applications included in the count. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The count includes web applications in the user's scope.",
       "category": "investigation",
