@@ -1,3 +1,9 @@
+""" Copyright start
+  Copyright (C) 2008 - 2023 Fortinet Inc.
+  All rights reserved.
+  FORTINET CONFIDENTIAL & FORTINET PROPRIETARY SOURCE CODE
+  Copyright end """
+
 import base64
 import requests
 import re
@@ -14,7 +20,7 @@ DATE_PATTERN = re.compile("^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d+")
 
 class QualysWAS:
     def __init__(self, config):
-        self.base_url = config.get('server_url').strip('/') + '/qps/rest/3.0/'
+        self.base_url = config.get('server_url').strip('/')
         if not self.base_url.startswith('https://'):
             self.base_url = 'https://{0}'.format(self.base_url)
         self.username = config['username']
@@ -29,8 +35,13 @@ class QualysWAS:
 
     def make_rest_call(self, endpoint, params=None,
                        headers={"Content-Type": "application/json", "Accept": "application/json"}, data=None,
-                       method='GET'):
-        url = '{0}{1}'.format(self.base_url, endpoint)
+                       method='GET', is_tag_action=False, is_user_action=False, is_file_action=False):
+        if is_tag_action:
+            url = '{0}/qps/rest/2.0/{1}'.format(self.base_url, endpoint)
+        elif is_user_action:
+            url = '{0}/qps/rest/1.0/{1}'.format(self.base_url, endpoint)
+        else:
+            url = '{0}/qps/rest/3.0/{1}'.format(self.base_url, endpoint)
         auth = self.username + ':' + self.password
         auth_header = {'Authorization': 'Basic ' + base64.b64encode(auth.encode('utf-8')).decode()}
         headers.update(auth_header)
@@ -44,7 +55,10 @@ class QualysWAS:
                                         params=params)
             if response.ok:
                 if response.status_code == 200:
-                    return response.json()
+                    if is_file_action:
+                        return response.content
+                    else:
+                        return response.json()
             # return json.loads(response.content.decode('utf-8')) if response.content.decode('utf-8') else ''
             else:
                 err_resp = response.json()
@@ -412,7 +426,7 @@ def download_report(config, params):
     qualyswas_obj = QualysWAS(config)
     report_id = params.get('report_id')
     endpoint = 'download/was/report/' + str(report_id)
-    response = qualyswas_obj.make_rest_call(endpoint=endpoint)
+    response = qualyswas_obj.make_rest_call(endpoint=endpoint, is_file_action=True)
     time = arrow.utcnow()
     file_name = f'qualys_was_{time}'
     path = os.path.join(settings.TMP_FILE_ROOT, file_name)
@@ -469,6 +483,103 @@ def get_schedule_details(config, params):
     return qualyswas_obj.make_rest_call(endpoint=endpoint)
 
 
+def search_tags(config, params):
+    qualyswas_obj = QualysWAS(config)
+    params = build_payload(params)
+    preferences_dict = build_preferences(params)
+    use_contains_opr = ["name"]
+    filter_criteria_list = build_criteria_list(params, use_contains_opr)
+    payload = {
+        "ServiceRequest": {
+            "filters": {
+                "Criteria": filter_criteria_list
+            }
+        }
+    }
+    if preferences_dict:
+        payload["ServiceRequest"].update({"preferences": preferences_dict})
+    endpoint = 'search/am/tag'
+    return qualyswas_obj.make_rest_call(endpoint=endpoint, data=payload, method='POST', is_tag_action=True)
+
+
+def create_tag(config, params):
+    qualyswas_obj = QualysWAS(config)
+    endpoint = 'create/am/tag'
+    payload = {
+        "ServiceRequest": {
+            "data": {
+                "Tag": {
+                    "name": params.get('name')
+                }
+            }
+        }
+    }
+    if params.get('criticalityScore'):
+        payload["ServiceRequest"]["data"]["Tag"].update({"criticalityScore": params.get('criticalityScore')})
+    if params.get('ruleType'):
+        payload["ServiceRequest"]["data"]["Tag"].update({"ruleType": params.get('ruleType')})
+    if params.get('ruleText'):
+        payload["ServiceRequest"]["data"]["Tag"].update({"ruleText": params.get('ruleText')})
+    if params.get('provider'):
+        payload["ServiceRequest"]["data"]["Tag"].update({"provider": params.get('provider')})
+    if params.get('color'):
+        payload["ServiceRequest"]["data"]["Tag"].update({"color": params.get('color')})
+    if params.get('children'):
+        child_tags = params.get('children').split(",")
+        tag_list = [{"name": tag} for tag in child_tags]
+        payload["ServiceRequest"]["data"]["Tag"].update({"children": {"set": {"TagSimple": tag_list}}})
+    return qualyswas_obj.make_rest_call(endpoint=endpoint, data=payload, method='POST', is_tag_action=True)
+
+
+def update_tag(config, params):
+    qualyswas_obj = QualysWAS(config)
+    endpoint = 'update/am/tag/' + str(params.pop('id'))
+    payload = {
+        "ServiceRequest": {
+            "data": {
+                "Tag": {}
+            }
+        }
+    }
+    if params.get('name'):
+        payload["ServiceRequest"]["data"]["Tag"].update({"name": params.get('name')})
+    if params.get('criticalityScore'):
+        payload["ServiceRequest"]["data"]["Tag"].update({"criticalityScore": params.get('criticalityScore')})
+    if params.get('ruleType'):
+        payload["ServiceRequest"]["data"]["Tag"].update({"ruleType": params.get('ruleType')})
+    if params.get('ruleText'):
+        payload["ServiceRequest"]["data"]["Tag"].update({"ruleText": params.get('ruleText')})
+    if params.get('color'):
+        payload["ServiceRequest"]["data"]["Tag"].update({"color": params.get('color')})
+    return qualyswas_obj.make_rest_call(endpoint=endpoint, data=payload, method='POST', is_tag_action=True)
+
+
+def delete_tag(config, params):
+    qualyswas_obj = QualysWAS(config)
+    tag_id = params.get('tag_id')
+    endpoint = 'delete/am/tag/' + str(tag_id)
+    return qualyswas_obj.make_rest_call(endpoint=endpoint, method='POST', is_tag_action=True)
+
+
+def search_users(config, params):
+    qualyswas_obj = QualysWAS(config)
+    params = build_payload(params)
+    preferences_dict = build_preferences(params)
+    use_contains_opr = ["username"]
+    filter_criteria_list = build_criteria_list(params, use_contains_opr)
+    payload = {
+        "ServiceRequest": {
+            "filters": {
+                "Criteria": filter_criteria_list
+            }
+        }
+    }
+    if preferences_dict:
+        payload["ServiceRequest"].update({"preferences": preferences_dict})
+    endpoint = 'search/admin/user'
+    return qualyswas_obj.make_rest_call(endpoint=endpoint, data=payload, method='POST', is_user_action=True)
+
+
 operations = {
     'scan_count': scan_count,
     'search_scans': search_scans,
@@ -486,5 +597,10 @@ operations = {
     'download_report': download_report,
     'search_option_profiles': search_option_profiles,
     'search_schedule': search_schedule,
-    'get_schedule_details': get_schedule_details
+    'get_schedule_details': get_schedule_details,
+    'search_tags': search_tags,
+    'create_tag': create_tag,
+    "update_tag": update_tag,
+    "delete_tag": delete_tag,
+    "search_users": search_users
 }

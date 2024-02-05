@@ -10,6 +10,34 @@ Connector Version: 2.0.0
 Authored By: Fortinet
 
 Certified: No
+## Release Notes for version 2.0.0
+Following enhancements have been made to the Qualys Web Application Scanning(WAS) Connector in version 2.0.0:
+<ul>
+<li>Fixed the 'JSON payload sent in the requests'.</li>
+<li><p>Updated the following action names:</p>
+
+<ul>
+<li>Retrieve Scan Results &gt; Get Scan Results</li>
+<li>Retrieve Scan Status &gt; Get Scan Status</li>
+<li>Count Web Applications &gt; Get Web Applications Count</li>
+</ul></li>
+<li><p>Added the following actions and playbooks: </p>
+
+<ul>
+<li>Search Reports</li>
+<li>Download Report</li>
+<li>Search Schedule </li>
+<li>Get Schedule Details</li>
+<li>Search Option Profiles</li>
+<li>Search Tags</li>
+<li>Create Tag</li>
+<li>Update Tag</li>
+<li>Delete Tag</li>
+<li>Search Users</li>
+</ul></li>
+<li>Added and updated input parameters in various actions. </li>
+</ul>
+
 ## Installing the connector
 <p>Use the <strong>Content Hub</strong> to install the connector. For the detailed procedure to install a connector, click <a href="https://docs.fortinet.com/document/fortisoar/0.0.0/installing-a-connector/1/installing-a-connector" target="_top">here</a>.</p><p>You can also use the <code>yum</code> command as a root user to install the connector:</p>
 <pre>yum install cyops-connector-qualys-web-application-scanner</pre>
@@ -57,6 +85,11 @@ The following automated operations can be included in playbooks and you can also
 <tr><td>Search Option Profiles</td><td>Returns a list of option profiles which are in the user’s scope. Action logs are not included in the output. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The Output includes option profiles in the user's scope. Input parameters are optional and act as filters.</td><td>search_option_profiles <br/>Investigation</td></tr>
 <tr><td>Search Schedule</td><td>Returns a list of scheduled scans on web applications which are in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes scan targets in the user's scope. Input parameters are optional and act as filters.</td><td>search_schedule <br/>Investigation</td></tr>
 <tr><td>Get Schedule Details</td><td>Retrieves details for a scheduled scan on a web application which is in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes schedules in the user's scope.</td><td>get_schedule_details <br/>Investigation</td></tr>
+<tr><td>Search Tags</td><td>Returns a list of tags based on the input parameters specified. Permissions required - Managers with full scope, other users must have Access Permission “API Access”</td><td>search_tags <br/>Investigation</td></tr>
+<tr><td>Create Tag</td><td>Creates a new tag and possibly child tags. Permissions required - Managers with full scope, other users must have these permissions: Access Permission “API Access”, Tag Permission “Create User Tag”, Tag Permission “Modify Dynamic Tag Rules” (to create a dynamic tag) Note: Provider name is mandatory in case of Cloud Asset tag.</td><td>create_tag <br/>Investigation</td></tr>
+<tr><td>Update Tag</td><td>Updates an existing tag based on tag ID specified. Permissions required - Managers with full scope, other users must have these permissions: Access Permission “API Access”, Tag Permission “Create User Tag”, Tag Permission “Modify Dynamic Tag Rules” (to create a dynamic tag)</td><td>update_tag <br/>Investigation</td></tr>
+<tr><td>Delete Tag</td><td>Deletes a tag. Permissions required - Managers with full scope, other users must have these permissions: Access Permission “API Access” and Tag Permission “Delete User Tag”</td><td>delete_tag <br/>Investigation</td></tr>
+<tr><td>Search Users</td><td>Returns a list of users based on input parameters specified. Input parameters are optional and act as filters, if no input parameter is specified, all users in the user’s scope are listed. Permissions required - Managers with full scope, other users must have Access Permission “API Access”.</td><td>search_users <br/>Investigation</td></tr>
 </tbody></table>
 
 ### operation: Get Scan Count
@@ -670,7 +703,7 @@ The output contains the following populated JSON schema:
 }</pre>
 ### operation: Delete Web Applications
 #### Input parameters
-<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>App ID</td><td>Specify the Web application ID.
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>App ID</td><td>Specify the web application ID.
 </td></tr></tbody></table>
 
 #### Output
@@ -764,11 +797,175 @@ The output contains the following populated JSON schema:
 #### Output
 
  The output contains a non-dictionary value.
+### operation: Search Tags
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>ID</td><td>Specify the tag ID.
+</td></tr><tr><td>Name</td><td>Specify the tag name.
+</td></tr><tr><td>Parent ID</td><td>Specify the tag ID of parent.
+</td></tr><tr><td>Criticality Score</td><td>Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest.
+</td></tr><tr><td>Rule Type</td><td>Specify the rule type. You can choose from the following options: GROOVY, OS_REGEX, NETWORK_RANGE, NAME_CONTAINS, INSTALLED_SOFTWARE, OPEN_PORTS, VULN_EXIST, ASSET_SEARCH, CLOUD_ASSET, BUSINESS_INFORMATION.
+</td></tr><tr><td>Provider</td><td>Specify the provider. You can choose from the following options: EC2, AZURE, GCP, IBM, OCI, Alibaba.
+</td></tr><tr><td>Color</td><td>Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F
+</td></tr><tr><td>Limit</td><td>Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.
+</td></tr><tr><td>Offset</td><td>Specify the first item to return by index. The default is 1.
+</td></tr></tbody></table>
+
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>{
+    "ServiceResponse": {
+        "data": [
+            {
+                "Tag": {
+                    "ruleText": "",
+                    "color": "",
+                    "modified": "",
+                    "name": "",
+                    "children": {
+                        "list": [
+                            {
+                                "TagSimple": {
+                                    "name": "",
+                                    "id": ""
+                                }
+                            }
+                        ]
+                    },
+                    "created": "",
+                    "ruleType": "",
+                    "id": ""
+                }
+            }
+        ],
+        "count": "",
+        "responseCode": ""
+    }
+}</pre>
+### operation: Create Tag
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Tag Name</td><td>Specify the name of the tag .
+</td></tr><tr><td>Criticality Score</td><td>Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest.
+</td></tr><tr><td>Rule Type</td><td>Specify the rule type. You can choose from the following options: GROOVY, OS_REGEX, NETWORK_RANGE, NAME_CONTAINS, INSTALLED_SOFTWARE, OPEN_PORTS, VULN_EXIST, ASSET_SEARCH, CLOUD_ASSET, BUSINESS_INFORMATION.
+</td></tr><tr><td>Rule Text</td><td>Specify the criteria for the rule.
+</td></tr><tr><td>Provider</td><td>Specify the provider. You can choose from the following options: EC2, AZURE, GCP, IBM, OCI, Alibaba. Provider name is mandatory in case of Cloud Asset tag.
+</td></tr><tr><td>Color</td><td>Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F
+</td></tr><tr><td>Child tags</td><td>Specify the child tags of the tag.
+</td></tr></tbody></table>
+
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>{
+    "ServiceResponse": {
+        "data": [
+            {
+                "Tag": {
+                    "ruleText": "",
+                    "color": "",
+                    "modified": "",
+                    "name": "",
+                    "children": {
+                        "list": [
+                            {
+                                "TagSimple": {
+                                    "name": "",
+                                    "id": ""
+                                }
+                            }
+                        ]
+                    },
+                    "created": "",
+                    "ruleType": "",
+                    "id": ""
+                }
+            }
+        ],
+        "count": "",
+        "responseCode": ""
+    }
+}</pre>
+### operation: Update Tag
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Tag ID</td><td>Specify the ID of the tag.
+</td></tr><tr><td>Tag Name</td><td>Specify the name of the tag.
+</td></tr><tr><td>Criticality Score</td><td>Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest.
+</td></tr><tr><td>Rule Type</td><td>Specify the rule type. You can choose from the following options: GROOVY, OS_REGEX, NETWORK_RANGE, NAME_CONTAINS, INSTALLED_SOFTWARE, OPEN_PORTS, VULN_EXIST, ASSET_SEARCH, CLOUD_ASSET, BUSINESS_INFORMATION.
+</td></tr><tr><td>Rule Text</td><td>Specify the criteria for the rule.
+</td></tr><tr><td>Color</td><td>Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F
+</td></tr></tbody></table>
+
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>{
+    "ServiceResponse": {
+        "data": [
+            {
+                "Tag": {
+                    "ruleText": "",
+                    "color": "",
+                    "modified": "",
+                    "name": "",
+                    "children": {
+                        "list": [
+                            {
+                                "TagSimple": {
+                                    "name": "",
+                                    "id": ""
+                                }
+                            }
+                        ]
+                    },
+                    "created": "",
+                    "ruleType": "",
+                    "id": ""
+                }
+            }
+        ],
+        "count": "",
+        "responseCode": ""
+    }
+}</pre>
+### operation: Delete Tag
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Tag ID</td><td>Specify the tag ID.
+</td></tr></tbody></table>
+
+#### Output
+The output contains the following populated JSON schema:
+
+<pre>{
+    "ServiceResponse": {
+        "data": [
+            {
+                "SimpleTag": {
+                    "id": ""
+                }
+            }
+        ],
+        "count": "",
+        "responseCode": ""
+    }
+}</pre>
+### operation: Search Users
+#### Input parameters
+<table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>User ID</td><td>Specify the user ID.
+</td></tr><tr><td>Username</td><td>Specify the user name.
+</td></tr><tr><td>Limit</td><td>Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.
+</td></tr><tr><td>Offset</td><td>Specify the first item to return by index. The default is 1.
+</td></tr></tbody></table>
+
+#### Output
+
+ The output contains a non-dictionary value.
 ## Included playbooks
 The `Sample - qualys-web-application-scanner - 2.0.0` playbook collection comes bundled with the Qualys Web Application Scanning(WAS) connector. These playbooks contain steps using which you can perform all supported actions. You can see bundled playbooks in the **Automation** > **Playbooks** section in FortiSOAR&trade; after importing the Qualys Web Application Scanning(WAS) connector.
 
+- Create Tag
 - Create Web Application
 - Delete Scan
+- Delete Tag
 - Delete Web Applications
 - Download Report
 - Get Scan Count
@@ -783,6 +980,9 @@ The `Sample - qualys-web-application-scanner - 2.0.0` playbook collection comes 
 - Search Reports
 - Search Scans
 - Search Schedule
+- Search Tags
+- Search Users
 - Search Web Applications
+- Update Tag
 
 **Note**: If you are planning to use any of the sample playbooks in your environment, ensure that you clone those playbooks and move them to a different collection since the sample playbook collection gets deleted during connector upgrade and delete.

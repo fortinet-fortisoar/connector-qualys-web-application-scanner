@@ -11,4 +11,9 @@
     - Search Schedule 
     - Get Schedule Details
     - Search Option Profiles
+    - Search Tags
+    - Create Tag
+    - Update Tag
+    - Delete Tag
+    - Search Users
 - Added and updated input parameters in various actions. 

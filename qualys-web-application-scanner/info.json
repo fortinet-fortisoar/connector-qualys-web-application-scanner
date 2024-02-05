@@ -1431,8 +1431,8 @@
           "visible": true,
           "type": "integer",
           "name": "app_id",
-          "description": "Specify the Web application ID.",
-          "tooltip": "Specify the Web application ID."
+          "description": "Specify the web application ID.",
+          "tooltip": "Specify the web application ID."
         }
       ],
       "enabled": true
@@ -1924,6 +1924,487 @@
           "name": "schedule_id",
           "description": "Specify the schedule ID.",
           "tooltip": "Specify the schedule ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Search Tags",
+      "operation": "search_tags",
+      "description": "Returns a list of tags based on the input parameters specified. Permissions required - Managers with full scope, other users must have Access Permission “API Access”",
+      "category": "investigation",
+      "annotation": "search_tags",
+      "output_schema": {
+          "ServiceResponse": {
+              "data": [
+                  {
+                      "Tag": {
+                          "ruleText": "",
+                          "color": "",
+                          "modified": "",
+                          "name": "",
+                          "children": {
+                              "list": [
+                                  {
+                                      "TagSimple": {
+                                          "name": "",
+                                          "id": ""
+                                      }
+                                  }
+                              ]
+                          },
+                          "created": "",
+                          "ruleType": "",
+                          "id": ""
+                      }
+                  }
+              ],
+              "count": "",
+              "responseCode": ""
+          }
+      },
+      "parameters": [
+        {
+          "title": "ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "description": "Specify the tag ID.",
+          "tooltip": "Specify the tag ID."
+        },
+        {
+          "title": "Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Specify the tag name.",
+          "tooltip": "Specify the tag name."
+        },
+        {
+          "title": "Parent ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "parent",
+          "description": "Specify the tag ID of parent.",
+          "tooltip": "Specify the tag ID of parent."
+        },
+        {
+          "title": "Criticality Score",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "criticalityScore",
+          "description": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest.",
+          "tooltip": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest."
+        },
+        {
+          "title": "Rule Type",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "GROOVY",
+            "OS_REGEX",
+            "NETWORK_RANGE",
+            "NAME_CONTAINS",
+            "INSTALLED_SOFTWARE",
+            "OPEN_PORTS",
+            "VULN_EXIST",
+            "ASSET_SEARCH",
+            "CLOUD_ASSET",
+            "BUSINESS_INFORMATION",
+            "STATIC",
+            "GLOBAL_ASSET_VIEW",
+            "NETWORK_RANGE",
+            "TAG_SET"
+          ],
+          "name": "ruleType",
+          "description": "Specify the rule type. You can choose from the following options: GROOVY, OS_REGEX, NETWORK_RANGE, NAME_CONTAINS, INSTALLED_SOFTWARE, OPEN_PORTS, VULN_EXIST, ASSET_SEARCH, CLOUD_ASSET, BUSINESS_INFORMATION."
+        },
+        {
+          "title": "Provider",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "EC2",
+            "AZURE",
+            "GCP",
+            "IBM",
+            "OCI",
+            "Alibaba"
+          ],
+          "name": "provider",
+          "description": "Specify the provider. You can choose from the following options: EC2, AZURE, GCP, IBM, OCI, Alibaba."
+        },
+        {
+          "title": "Color",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "color",
+          "description": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F",
+          "tooltip": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F"
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limitResults",
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "startFromOffset",
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Create Tag",
+      "operation": "create_tag",
+      "description": "Creates a new tag and possibly child tags. Permissions required - Managers with full scope, other users must have these permissions: Access Permission “API Access”, Tag Permission “Create User Tag”, Tag Permission “Modify Dynamic Tag Rules” (to create a dynamic tag) Note: Provider name is mandatory in case of Cloud Asset tag.",
+      "category": "investigation",
+      "annotation": "create_tag",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+              {
+                "Tag": {
+                  "ruleText": "",
+                  "color": "",
+                  "modified": "",
+                  "name": "",
+                  "children": {
+                    "list": [
+                      {
+                        "TagSimple": {
+                            "name": "",
+                            "id": ""
+                        }
+                      }
+                    ]
+                  },
+                  "created": "",
+                  "ruleType": "",
+                  "id": ""
+                }
+              }
+          ],
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Tag Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Specify the name of the tag .",
+          "tooltip": "Specify the name of the tag."
+        },
+        {
+          "title": "Criticality Score",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "criticalityScore",
+          "description": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest.",
+          "tooltip": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest."
+        },
+        {
+          "title": "Rule Type",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "GROOVY",
+            "OS_REGEX",
+            "NETWORK_RANGE",
+            "NAME_CONTAINS",
+            "INSTALLED_SOFTWARE",
+            "OPEN_PORTS",
+            "VULN_EXIST",
+            "ASSET_SEARCH",
+            "CLOUD_ASSET",
+            "BUSINESS_INFORMATION",
+            "STATIC",
+            "GLOBAL_ASSET_VIEW",
+            "NETWORK_RANGE",
+            "TAG_SET"
+          ],
+          "name": "ruleType",
+          "description": "Specify the rule type. You can choose from the following options: GROOVY, OS_REGEX, NETWORK_RANGE, NAME_CONTAINS, INSTALLED_SOFTWARE, OPEN_PORTS, VULN_EXIST, ASSET_SEARCH, CLOUD_ASSET, BUSINESS_INFORMATION."
+        },
+        {
+          "title": "Rule Text",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "ruleText",
+          "description": "Specify the criteria for the rule.",
+          "tooltip": "Specify the criteria for the rule."
+        },
+        {
+          "title": "Provider",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "EC2",
+            "AZURE",
+            "GCP",
+            "IBM",
+            "OCI",
+            "Alibaba"
+          ],
+          "name": "provider",
+          "tooltip": "Provider name is mandatory in case of Cloud Asset tag.",
+          "description": "Specify the provider. You can choose from the following options: EC2, AZURE, GCP, IBM, OCI, Alibaba. Provider name is mandatory in case of Cloud Asset tag."
+        },
+        {
+          "title": "Color",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "color",
+          "description": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F",
+          "tooltip": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F"
+        },
+        {
+          "title": "Child tags",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "children",
+          "description": "Specify the child tags of the tag.",
+          "tooltip": "Specify the child tags of the tag."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Update Tag",
+      "operation": "update_tag",
+      "description": "Updates an existing tag based on tag ID specified. Permissions required - Managers with full scope, other users must have these permissions: Access Permission “API Access”, Tag Permission “Create User Tag”, Tag Permission “Modify Dynamic Tag Rules” (to create a dynamic tag)",
+      "category": "investigation",
+      "annotation": "update_tag",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+              {
+                "Tag": {
+                  "ruleText": "",
+                  "color": "",
+                  "modified": "",
+                  "name": "",
+                  "children": {
+                    "list": [
+                      {
+                        "TagSimple": {
+                            "name": "",
+                            "id": ""
+                        }
+                      }
+                    ]
+                  },
+                  "created": "",
+                  "ruleType": "",
+                  "id": ""
+                }
+              }
+          ],
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Tag ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "description": "Specify the ID of the tag.",
+          "tooltip": "Specify the ID of the tag."
+        },
+        {
+          "title": "Tag Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Specify the name of the tag.",
+          "tooltip": "Specify the name of the tag."
+        },
+        {
+          "title": "Criticality Score",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "criticalityScore",
+          "description": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest.",
+          "tooltip": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest."
+        },
+        {
+          "title": "Rule Type",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "GROOVY",
+            "OS_REGEX",
+            "NETWORK_RANGE",
+            "NAME_CONTAINS",
+            "INSTALLED_SOFTWARE",
+            "OPEN_PORTS",
+            "VULN_EXIST",
+            "ASSET_SEARCH",
+            "CLOUD_ASSET",
+            "BUSINESS_INFORMATION",
+            "STATIC",
+            "GLOBAL_ASSET_VIEW",
+            "NETWORK_RANGE",
+            "TAG_SET"
+          ],
+          "name": "ruleType",
+          "description": "Specify the rule type. You can choose from the following options: GROOVY, OS_REGEX, NETWORK_RANGE, NAME_CONTAINS, INSTALLED_SOFTWARE, OPEN_PORTS, VULN_EXIST, ASSET_SEARCH, CLOUD_ASSET, BUSINESS_INFORMATION."
+        },
+        {
+          "title": "Rule Text",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "ruleText",
+          "description": "Specify the criteria for the rule.",
+          "tooltip": "Specify the criteria for the rule."
+        },
+        {
+          "title": "Color",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "color",
+          "description": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F",
+          "tooltip": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Delete Tag",
+      "operation": "delete_tag",
+      "description": "Deletes a tag. Permissions required - Managers with full scope, other users must have these permissions: Access Permission “API Access” and Tag Permission “Delete User Tag”",
+      "category": "investigation",
+      "annotation": "delete_tag",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "SimpleTag": {
+                "id": ""
+              }
+            }
+          ],
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Tag ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "tag_id",
+          "description": "Specify the tag ID.",
+          "tooltip": "Specify the tag ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Search Users",
+      "operation": "search_users",
+      "description": "Returns a list of users based on input parameters specified. Input parameters are optional and act as filters, if no input parameter is specified, all users in the user’s scope are listed. Permissions required - Managers with full scope, other users must have Access Permission “API Access”.",
+      "category": "investigation",
+      "annotation": "search_users",
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "User ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "Specify the user ID.",
+          "description": "Specify the user ID."
+        },
+        {
+          "title": "Username",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "username",
+          "description": "Specify the user name.",
+          "tooltip": "Specify the user name."
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limitResults",
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "startFromOffset",
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
         }
       ],
       "enabled": true
