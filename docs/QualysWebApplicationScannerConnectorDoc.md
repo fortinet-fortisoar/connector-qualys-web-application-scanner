@@ -35,7 +35,56 @@ Following enhancements have been made to the Qualys Web Application Scanning(WAS
 <li>Delete Tag</li>
 <li>Search Users</li>
 </ul></li>
-<li>Added and updated input parameters in various actions. </li>
+<li><p>In action "Get Scan Count":</p>
+
+<ul>
+<li>The type of input parameter "Scan ID", "Web App ID", "Web App Tag ID" is changed to text from integer.</li>
+<li>The type of input parameter "Type", "Mode", "Status", "Authentication Status", "Result Status" is changed to multiselect from select.</li>
+<li>The options "CANCELING", "ERROR", "CANCELED<em>WITH</em>RESULTS" are added and "CANCELING ERROR" is removed from the input parameter "Result Status".</li>
+</ul></li>
+
+<li><p>In action "Search Scans":</p>
+
+<ul>
+<li>Renamed the input parameter "Web App Rag ID" to "Web App Tag ID".</li>
+<li>The type of input parameter "Scan ID", "Web App ID", "Web App Tag ID" is changed to text from integer.</li>
+<li>The type of input parameter "Type", "Mode", "Status", "Authentication Status", "Result Status" is changed to multiselect from select.</li>
+<li>The options "CANCELING", "ERROR", "CANCELED<em>WITH</em>RESULTS" are added and "CANCELING ERROR" is removed from the input parameter "Result Status".</li>
+<li>Input parameters "Limit" and "Offset" are added.</li>
+</ul></li>
+
+<li><p>In action "Launch Scans":</p>
+
+<ul>
+<li>The type of input parameter "Scan Type", "Target Scanner Appliance Type" is changed to multiselect from select.</li>
+</ul></li>
+
+<li><p>In action "Get Web Applications Count":</p>
+
+<ul>
+<li>The type of input parameter "ID", is changed to text from integer.</li>
+<li>Input parameters "Tags ID", "Tags Name", "Created Date", "Updated Date", "Last Scan Status", "Last Scan Date" are added.</li>
+</ul></li>
+
+<li><p>In action "Search Web Applications":</p>
+
+<ul>
+<li>Renamed the input parameter "Scan ID" to "ID", "Scan Name" to "Name".</li>
+<li>The type of input parameter "ID", "Tags ID", "Tags Name" is changed to text from integer.</li>
+<li>Input parameters "Scheduled", "Scanned", "Last Scan Status", "Last Scan Date", "Limit", "Offset", "Verbose" are added.</li>
+</ul></li>
+
+<li><p>In action "Get Web Application Details":</p>
+
+<ul>
+<li>Renamed the input parameter "Scan ID" to "App ID".</li>
+</ul></li>
+
+<li><p>In action "Delete Web Applications":</p>
+
+<ul>
+<li>Updated output schema.</li>
+</ul></li>
 </ul>
 
 ## Installing the connector
@@ -122,7 +171,7 @@ The output contains the following populated JSON schema:
 <table border=1><thead><tr><th>Parameter</th><th>Description</th></tr></thead><tbody><tr><td>Scan ID</td><td>Specify the scan ID.
 </td></tr><tr><td>Scan Name</td><td>Specify the scan name.
 </td></tr><tr><td>Web App Name</td><td>Specify the name of the web application being scanned.
-</td></tr><tr><td>Web App id</td><td>Specify the ID of the web application being scanned.
+</td></tr><tr><td>Web App ID</td><td>Specify the ID of the web application being scanned.
 </td></tr><tr><td>Web App Tag ID</td><td>Specify the tag ID assigned to web application being scanned.
 </td></tr><tr><td>Reference</td><td>Specify the scan reference ID.
 </td></tr><tr><td>Launch Date</td><td>Specify the date and time to return all the scan which was launched after specified date and time in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)

@@ -9,7 +9,7 @@
   "cs_compatible": true,
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-qualys-web-application-scanner/blob/release/2.0.0/docs/QualysWebApplicationScannerConnectorDoc.md",
   "configuration": {
     "fields": [
       {
@@ -321,7 +321,7 @@
           "tooltip": "Specify the name of the web application being scanned."
         },
         {
-          "title": "Web App id",
+          "title": "Web App ID",
           "required": false,
           "editable": true,
           "visible": true,
