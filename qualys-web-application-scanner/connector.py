@@ -1,5 +1,11 @@
-from connectors.core.connector import Connector, get_logger, ConnectorError
+"""
+Copyright start
+MIT License
+Copyright (c) 2024 Fortinet Inc
+Copyright end
+"""
 
+from connectors.core.connector import Connector, get_logger, ConnectorError
 from .operations import operations, _check_health
 
 logger = get_logger('qualys-was')

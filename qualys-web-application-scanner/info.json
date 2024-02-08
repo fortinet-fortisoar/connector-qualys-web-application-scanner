@@ -1,15 +1,15 @@
 {
-  "description": "Cloud solution for continuous web app discovery and detection of vulnerabilities and misconfigurations.",
-  "category": "Web Application Scanner",
+  "description": "Qualys Web Application Scanning (WAS) is a robust cloud-based application security product that continuously discovers, detects, and catalogs web applications and APIs.",
+  "category": "Vulnerability and Risk Management",
   "name": "qualys-web-application-scanner",
   "label": "Qualys Web Application Scanning(WAS)",
-  "version": "1.0.0",
-  "publisher": "Community",
+  "version": "2.0.0",
+  "publisher": "Fortinet",
   "cs_approved": false,
   "cs_compatible": true,
   "icon_small_name": "small.png",
   "icon_large_name": "large.png",
-  "help_online": "https://docs.fortinet.com/document/fortisoar/1.0.0/qualys-web-application-scanning-was/352/qualys-web-application-scanning-was-v1-0-0",
+  "help_online": "https://github.com/fortinet-fortisoar/connector-qualys-web-application-scanner/blob/release/2.0.0/docs/QualysWebApplicationScannerConnectorDoc.md",
   "configuration": {
     "fields": [
       {
@@ -60,7 +60,7 @@
     {
       "title": "Get Scan Count",
       "operation": "scan_count",
-      "description": "Returns the total number of scans in the user’s account. Input elements are optional and are used to filter the number of scans included in the count. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission API Access. The count includes scans in the user's scope",
+      "description": "Returns the total number of scans in the user’s account. Input parameters are optional and are used to filter the number of scans included in the count. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission API Access. The count includes scans in the user's scope.",
       "category": "investigation",
       "annotation": "scan_count",
       "output_schema": {
@@ -75,9 +75,10 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "text",
           "name": "id",
-          "description": "The scan ID."
+          "tooltip": "Specify the scan ID.",
+          "description": "Specify the scan ID."
         },
         {
           "title": "Scan Name",
@@ -86,7 +87,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "The scan name."
+          "tooltip": "Specify the scan name.",
+          "description": "Specify the scan name."
         },
         {
           "title": "Web App Name",
@@ -95,25 +97,28 @@
           "visible": true,
           "type": "text",
           "name": "webApp.name",
-          "description": "The name of the web application being scanned."
+          "tooltip": "Specify the name of the web application being scanned.",
+          "description": "Specify the name of the web application being scanned."
         },
         {
           "title": "Web App ID",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "text",
           "name": "webApp.id",
-          "description": "The ID of the web application being scanned."
+          "tooltip": "Specify the ID of the web application being scanned.",
+          "description": "Specify the ID of the web application being scanned."
         },
         {
           "title": "Web App Tag ID",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "text",
           "name": "webApp.tags.id",
-          "description": "The tag ID assigned to web application being scanned."
+          "tooltip": "Specify the tag ID assigned to web application being scanned.",
+          "description": "Specify the tag ID assigned to web application being scanned."
         },
         {
           "title": "Reference",
@@ -122,7 +127,8 @@
           "visible": true,
           "type": "text",
           "name": "reference",
-          "description": "Scan Reference ID."
+          "tooltip": "Specify the scan reference ID.",
+          "description": "Specify the scan reference ID."
         },
         {
           "title": "Launch Date",
@@ -131,42 +137,43 @@
           "visible": true,
           "type": "datetime",
           "name": "launchedDate",
-          "description": "The date and time when the scan was launched in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
+          "tooltip": "Specify the date and time to return all the scan which was launched after specified date and time in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)",
+          "description": "Specify the date and time to return all the scan which was launched after specified date and time in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
         },
         {
           "title": "Type",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "VULNERABILITY",
             "DISCOVERY"
           ],
           "name": "type",
-          "description": "The scan type: VULNERABILITY or DISCOVERY"
+          "description": "Specify the scan type. You can choose from the following options: VULNERABILITY or DISCOVERY."
         },
         {
           "title": "Mode",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "ONDEMAND",
             "SCHEDULED",
             "API"
           ],
           "name": "mode",
-          "description": "The mode of the scan: ONDEMAND, SCHEDULED or API."
+          "description": "Specify the mode of the scan. You can choose from the following options: ONDEMAND, SCHEDULED or API."
         },
         {
           "title": "Status",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "SUBMITTED",
             "RUNNING",
             "FINISHED",
@@ -177,15 +184,15 @@
             "CANCELED"
           ],
           "name": "status",
-          "description": "The status of the scan: SUBMITTED, RUNNING, FINISHED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, ERROR or CANCELED"
+          "description": "Specify the status of the scan. You can choose from the following options: SUBMITTED, RUNNING, FINISHED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, ERROR or CANCELED."
         },
         {
           "title": "Authentication Status",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "NONE",
             "NOT_USED",
             "SUCCESSFUL",
@@ -193,15 +200,15 @@
             "PARTIAL"
           ],
           "name": "authStatus",
-          "description": "Indicates the status of the authentication record: NONE, NOT_USED, SUCCESSFUL, FAILED or PARTIAL"
+          "description": "Specify the status of the authentication record. You can choose from the following options: NONE, NOT_USED, SUCCESSFUL, FAILED or PARTIAL."
         },
         {
           "title": "Result Status",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "NOT_USED",
             "NO_HOST_ALIVE",
             "NO_WEB_SERVICE",
@@ -219,11 +226,13 @@
             "RUNNING",
             "FINISHED",
             "CANCELED",
-            "CANCELING ERROR",
+            "CANCELING",
+            "ERROR",
+            "CANCELED_WITH_RESULTS",
             "DELETED"
           ],
           "name": "resultsStatus",
-          "description": "(keyword) The status of the scan: NOT_USED, NO_HOST_ALIVE, NO_WEB_SERVICE, PROCESSING, SCAN_RESULTS_INVALID, TIME_LIMIT_REACHED, SERVICE_ERROR, SCAN_INTERNAL_ERROR, SUCCESSFUL, TO_BE_PROCESSED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, SUBMITTED, RUNNING, FINISHED, CANCELED, CANCELING ERROR, DELETED."
+          "description": "Specify the status of the scan. You can choose from the following options: NOT_USED, NO_HOST_ALIVE, NO_WEB_SERVICE, PROCESSING, SCAN_RESULTS_INVALID, TIME_LIMIT_REACHED, SERVICE_ERROR, SCAN_INTERNAL_ERROR, SUCCESSFUL, TO_BE_PROCESSED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, SUBMITTED, RUNNING, FINISHED, CANCELED, CANCELING ERROR, DELETED."
         }
       ],
       "enabled": true
@@ -231,7 +240,7 @@
     {
       "title": "Search Scans",
       "operation": "search_scans",
-      "description": "Returns a list of scans on web applications which are in the user’s scope",
+      "description": "Returns a list of scans on web applications which are in the user’s scope. Input parameters are optional and act as filters. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission API Access. The output includes scans in the user's scope.",
       "category": "investigation",
       "annotation": "search_scans",
       "output_schema": {
@@ -286,9 +295,10 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "text",
           "name": "id",
-          "description": "The scan ID."
+          "tooltip": "Specify the scan ID.",
+          "description": "Specify the scan ID."
         },
         {
           "title": "Scan Name",
@@ -297,7 +307,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "The scan name."
+          "description": "Specify the scan name.",
+          "tooltip": "Specify the scan name."
         },
         {
           "title": "Web App Name",
@@ -306,25 +317,28 @@
           "visible": true,
           "type": "text",
           "name": "webApp.name",
-          "description": "The name of the web application being scanned."
+          "description": "Specify the name of the web application being scanned.",
+          "tooltip": "Specify the name of the web application being scanned."
         },
         {
-          "title": "Web App id",
+          "title": "Web App ID",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "text",
           "name": "webApp.id",
-          "description": "The ID of the web application being scanned."
+          "description": "Specify the ID of the web application being scanned.",
+          "tooltip": "Specify the ID of the web application being scanned."
         },
         {
-          "title": "Web App Rag ID",
+          "title": "Web App Tag ID",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "text",
           "name": "webApp.tags.id",
-          "description": "The tag ID assigned to web application being scanned."
+          "description": "Specify the tag ID assigned to web application being scanned.",
+          "tooltip": "Specify the tag ID assigned to web application being scanned."
         },
         {
           "title": "Reference",
@@ -333,7 +347,8 @@
           "visible": true,
           "type": "text",
           "name": "reference",
-          "description": "Scan Reference ID."
+          "description": "Specify the scan reference ID.",
+          "tooltip": "Specify the scan reference ID."
         },
         {
           "title": "Launch Date",
@@ -342,42 +357,43 @@
           "visible": true,
           "type": "datetime",
           "name": "launchedDate",
-          "description": " The date and time when the scan was launched in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
+          "description": "Specify the date and time to return all the scan which was launched after specified date and time in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)",
+          "tooltip": "Specify the date and time to return all the scan which was launched after specified date and time in UTC date/time format (YYYY-MM-DDTHH:MM:SSZ)"
         },
         {
           "title": "Type",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "VULNERABILITY",
             "DISCOVERY"
           ],
           "name": "type",
-          "description": "The scan type: VULNERABILITY or DISCOVERY"
+          "description": "Specify the scan type. You can choose from the following options: VULNERABILITY or DISCOVERY."
         },
         {
           "title": "Mode",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "ONDEMAND",
             "SCHEDULED",
             "API"
           ],
           "name": "mode",
-          "description": "The mode of the scan: ONDEMAND, SCHEDULED or API."
+          "description": "Specify the mode of the scan. You can choose from the following options: ONDEMAND, SCHEDULED or API."
         },
         {
           "title": "Status",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "SUBMITTED",
             "RUNNING",
             "FINISHED",
@@ -385,18 +401,19 @@
             "SCAN_NOT_LAUNCHED",
             "SCANNER_NOT_AVAILABLE",
             "ERROR",
-            "CANCELED"
+            "CANCELED",
+            "PROCESSING"
           ],
           "name": "status",
-          "description": "The status of the scan: SUBMITTED, RUNNING, FINISHED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, ERROR or CANCELED"
+          "description": "Specify the status of the scan. You can choose from the following options: SUBMITTED, RUNNING, FINISHED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, ERROR or CANCELED."
         },
         {
           "title": "Authentication Status",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "NONE",
             "NOT_USED",
             "SUCCESSFUL",
@@ -404,15 +421,15 @@
             "PARTIAL"
           ],
           "name": "authStatus",
-          "description": " Indicates the status of the authentication record: NONE, NOT_USED, SUCCESSFUL, FAILED or PARTIAL"
+          "description": "Specify the status of the authentication record. You can choose from the following options: NONE, NOT_USED, SUCCESSFUL, FAILED or PARTIAL."
         },
         {
           "title": "Result Status",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "NOT_USED",
             "NO_HOST_ALIVE",
             "NO_WEB_SERVICE",
@@ -430,11 +447,33 @@
             "RUNNING",
             "FINISHED",
             "CANCELED",
-            "CANCELING ERROR",
-            "DELETED"
+            "CANCELING",
+            "ERROR",
+            "DELETED",
+            "CANCELED_WITH_RESULTS"
           ],
           "name": "resultsStatus",
-          "description": "(keyword) The status of the scan: NOT_USED, NO_HOST_ALIVE, NO_WEB_SERVICE, PROCESSING, SCAN_RESULTS_INVALID, TIME_LIMIT_REACHED, SERVICE_ERROR, SCAN_INTERNAL_ERROR, SUCCESSFUL, TO_BE_PROCESSED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, SUBMITTED, RUNNING, FINISHED, CANCELED, CANCELING ERROR, DELETED."
+          "description": "Specify the status of the scan. You can choose from the following options: NOT_USED, NO_HOST_ALIVE, NO_WEB_SERVICE, PROCESSING, SCAN_RESULTS_INVALID, TIME_LIMIT_REACHED, SERVICE_ERROR, SCAN_INTERNAL_ERROR, SUCCESSFUL, TO_BE_PROCESSED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, SUBMITTED, RUNNING, FINISHED, CANCELED, CANCELING ERROR, DELETED."
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limitResults",
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "startFromOffset",
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
         }
       ],
       "enabled": true
@@ -442,7 +481,7 @@
     {
       "title": "Get Scan Details",
       "operation": "get_scan_details",
-      "description": "View details for a scan on a web application which is in the user’s scope. Want to find a scan ID ",
+      "description": "Retrieves details for a scan on a web application which is in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes authentication records in the user's scope.",
       "category": "investigation",
       "annotation": "get_scan_details",
       "output_schema": {
@@ -517,7 +556,8 @@
           "visible": true,
           "type": "text",
           "name": "scan_id",
-          "description": "The scan ID."
+          "description": "Specify the scan ID.",
+          "tooltip": "Specify the scan ID."
         }
       ],
       "enabled": true
@@ -525,7 +565,7 @@
     {
       "title": "Launch Scans",
       "operation": "launch_scans",
-      "description": "Enhanced the ability to support large web application scanning programs by adding the ability to scan any number of web applications as a Multi-Scan through API.",
+      "description": "Launches web application scanning. You can scan any number of web applications as a Multi-Scan through API. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access” and “Launch WAS Scan“. The output includes scan targets in the user's scope.",
       "category": "investigation",
       "annotation": "launch_scans",
       "output_schema": {
@@ -549,20 +589,21 @@
           "visible": true,
           "type": "text",
           "name": "scan_name",
-          "description": "The scan name."
+          "description": "Specify the scan name.",
+          "tooltip": "Specify the scan name."
         },
         {
           "title": "Scan Type",
           "required": true,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "VULNERABILITY",
             "DISCOVERY"
           ],
           "name": "scan_type",
-          "description": " The scan type: VULNERABILITY or DISCOVERY"
+          "description": "Specify the scan type. You can choose from the following options: VULNERABILITY or DISCOVERY."
         },
         {
           "title": "Web App ID",
@@ -571,7 +612,8 @@
           "visible": true,
           "type": "integer",
           "name": "web_app_id",
-          "description": "Specify the web application ID to include it in the scan"
+          "description": "Specify the ID of the web application to include it in the scan",
+          "tooltip": "Specify the ID of the web application to include it in the scan"
         },
         {
           "title": "Target Web App Auth Record",
@@ -581,21 +623,22 @@
           "type": "checkbox",
           "value": true,
           "name": "web_app_auth_record",
-          "description": "Set to true to use the default web application's authentication record for the scan."
+          "description": "Set this to true to use the default web application's authentication record for the scan.",
+          "tooltip": "Set this to true to use the default web application's authentication record for the scan."
         },
         {
           "title": "Target Scanner Appliance Type",
           "required": true,
           "editable": true,
           "visible": true,
-          "type": "select",
-          "option": [
+          "type": "multiselect",
+          "options": [
             "EXTERNAL",
             "INTERNAL",
             "scannerTags"
           ],
           "name": "scanner_appliance",
-          "description": "The type of scanner appliance used for the scan: EXTERNAL or INTERNAL or scannerTags"
+          "description": "Specify the type of scanner appliance used for the scan. You can choose from the following options: EXTERNAL or INTERNAL or scannerTags"
         },
         {
           "title": "Scan Profile ID",
@@ -604,13 +647,14 @@
           "visible": true,
           "type": "integer",
           "name": "profile_id",
-          "description": "The name of the option profile that includes scan settings. The service provides the profile “Initial WAS Options” and we recommend this to get started."
+          "description": "Specify the name of the option profile that includes scan settings. This parameter is required unless the target has a default option profile.",
+          "tooltip": "Specify the name of the option profile that includes scan settings. This parameter is required unless the target has a default option profile."
         }
       ],
       "enabled": true
     },
     {
-      "title": "Retrieve Scan Status",
+      "title": "Get Scan Status",
       "operation": "retrieve_scan_status",
       "description": "Retrieve the status of a scan on a web application which is in the user’s scope.",
       "category": "investigation",
@@ -641,15 +685,16 @@
           "visible": true,
           "type": "text",
           "name": "scan_id",
-          "description": "The scan ID."
+          "description": "Specify the scan ID.",
+          "tooltip": "Specify the scan ID."
         }
       ],
       "enabled": true
     },
     {
-      "title": "Retrieve Scan Results",
+      "title": "Get Scan Results",
       "operation": "retrieve_scan_results",
-      "description": "Retrieve the results of a scan on a web application which is in the user’s scope.",
+      "description": "Retrieve the results of a scan on a web application which is in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes scan targets in the user's scope.",
       "category": "investigation",
       "annotation": "retrieve_scan_results",
       "output_schema": {
@@ -777,7 +822,8 @@
           "visible": true,
           "type": "text",
           "name": "scan_id",
-          "description": "The scan ID."
+          "description": "Specify the scan ID.",
+          "tooltip": "Specify the scan ID."
         }
       ],
       "enabled": true
@@ -785,7 +831,7 @@
     {
       "title": "Delete Scan",
       "operation": "delete_scan",
-      "description": "Delete an existing scan on a web application which is in the user’s scope. You can delete any scan in your account that is not running.",
+      "description": "Delete an existing scan on a web application which is in the user’s scope. You can delete any scan in your account that is not running. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access” and ”Delete WAS scan” permission. The scan to be deleted must be within the user’s scope.",
       "category": "investigation",
       "annotation": "delete_scan",
       "output_schema": {
@@ -809,15 +855,16 @@
           "visible": true,
           "type": "integer",
           "name": "scan_id",
-          "description": "The scan ID."
+          "description": "Specify the scan ID.",
+          "tooltip": "Specify the scan ID."
         }
       ],
       "enabled": true
     },
     {
-      "title": "Count Web Applications",
+      "title": "Get Web Applications Count",
       "operation": "count_webapp",
-      "description": "Returns the total number of web applications in the user’s account. Input elements are optional and are used to filter the number of web applications included in the count.",
+      "description": "Returns the total number of web applications in the user’s account. Input parameters are optional and are used to filter the number of web applications included in the count. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The count includes web applications in the user's scope.",
       "category": "investigation",
       "annotation": "count_webapp",
       "output_schema": {
@@ -832,9 +879,10 @@
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "text",
           "name": "id",
-          "description": " Web application ID"
+          "description": "Specify the Web application ID.",
+          "tooltip": "Specify the Web application ID."
         },
         {
           "title": "Name",
@@ -843,7 +891,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "Web application name."
+          "description": "Specify the Web application name.",
+          "tooltip": "Specify the Web application name."
         },
         {
           "title": "URL",
@@ -852,7 +901,48 @@
           "visible": true,
           "type": "text",
           "name": "url",
-          "description": "The URL of web application"
+          "description": "Specify the URL of web application.",
+          "tooltip": "Specify the URL of web application."
+        },
+        {
+          "title": "Tags ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "tags.id",
+          "description": "Specify the tag ID assigned to web application.",
+          "tooltip": "Specify the tag ID assigned to web application."
+        },
+        {
+          "title": "Tags Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "tags.name",
+          "description": "Specify the tag name assigned to web application.",
+          "tooltip": "Specify the tag name assigned to web application."
+        },
+        {
+          "title": "Created Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "createdDate",
+          "description": "Specify the date and time to return all the web application which was created in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was created in WAS after specified date and time in UTC date/time format."
+        },
+        {
+          "title": "Updated Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "updatedDate",
+          "description": "Specify the date and time to return all the web application which was last updated in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was last updated in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Scheduled",
@@ -862,7 +952,8 @@
           "type": "checkbox",
           "value": false,
           "name": "isScheduled",
-          "description": " A flag indicating whether a scan is scheduled for web application."
+          "description": "Set this to true to indicate that a scan is scheduled for web application.",
+          "tooltip": "Set this to true to indicate that a scan is scheduled for web application."
         },
         {
           "title": "Scanned",
@@ -872,7 +963,37 @@
           "type": "checkbox",
           "value": false,
           "name": "isScanned",
-          "description": " A flag indicating whether the web application has been scanned."
+          "description": "Set this to true to indicate that the web application has been scanned.",
+          "tooltip": "Set this to true to indicate that the web application has been scanned."
+        },
+        {
+          "title": "Last Scan Status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "SUBMITTED",
+            "RUNNING",
+            "FINISHED",
+            "TIME_LIMIT_EXCEEDED",
+            "SCAN_NOT_LAUNCHED",
+            "SCANNER_NOT_AVAILABLE",
+            "ERROR",
+            "CANCELED"
+          ],
+          "name": "lastScan.status",
+          "description": "Specify the status of the last scan. You can choose from the following options: SUBMITTED, RUNNING, FINISHED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, ERROR or CANCELED"
+        },
+        {
+          "title": "Last Scan Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "lastScan.date",
+          "description": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format."
         }
       ],
       "enabled": true
@@ -880,7 +1001,7 @@
     {
       "title": "Search Web Applications",
       "operation": "search_webapp",
-      "description": "Returns a list of web applications which are in the user’s scope.",
+      "description": "Returns a list of web applications which are in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes web applications in the user's scope.",
       "category": "investigation",
       "annotation": "search_webapp",
       "output_schema": {
@@ -909,22 +1030,24 @@
       },
       "parameters": [
         {
-          "title": "Scan ID",
+          "title": "ID",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "text",
           "name": "id",
-          "description": "The scan ID."
+          "description": "Specify the Web application ID.",
+          "tooltip": "Specify the Web application ID."
         },
         {
-          "title": "Scan Name",
+          "title": "Name",
           "required": false,
           "editable": true,
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "The scan name."
+          "description": "Specify the Web application name.",
+          "tooltip": "Specify the Web application name."
         },
         {
           "title": "URL",
@@ -933,25 +1056,28 @@
           "visible": true,
           "type": "text",
           "name": "url",
-          "description": "The URL of web application."
+          "description": "Specify the URL of web application.",
+          "tooltip": "Specify the URL of web application."
         },
         {
           "title": "Tags ID",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "text",
           "name": "tags.id",
-          "description": "Tag ID assigned to web application."
+          "description": "Specify the tag ID assigned to web application.",
+          "tooltip": "Specify the tag ID assigned to web application."
         },
         {
           "title": "Tags Name",
           "required": false,
           "editable": true,
           "visible": true,
-          "type": "integer",
+          "type": "text",
           "name": "tags.name",
-          "description": "Tag name assigned to web application."
+          "description": "Specify the tag name assigned to web application.",
+          "tooltip": "Specify the tag name assigned to web application."
         },
         {
           "title": "Created Date",
@@ -960,7 +1086,8 @@
           "visible": true,
           "type": "datetime",
           "name": "createdDate",
-          "description": "The date when the web application was created in WAS, in UTC date/time format."
+          "description": "Specify the date and time to return all the web application which was created in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was created in WAS after specified date and time in UTC date/time format."
         },
         {
           "title": "Updated Date",
@@ -969,15 +1096,98 @@
           "visible": true,
           "type": "datetime",
           "name": "updatedDate",
-          "description": "The date when the web application was last updated in WAS, in UTC date/time format."
-        }
+          "description": "Specify the date and time to return all the web application which was last updated in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was last updated in WAS after specified date and time in UTC date/time format."
+        },
+        {
+          "title": "Scheduled",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": false,
+          "name": "isScheduled",
+          "description": "Set this to true to indicate that a scan is scheduled for web application.",
+          "tooltip": "Set this to true to indicate that a scan is scheduled for web application."
+        },
+        {
+          "title": "Scanned",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": false,
+          "name": "isScanned",
+          "description": "Set this to true to indicate that the web application has been scanned.",
+          "tooltip": "Set this to true to indicate that the web application has been scanned."
+        },
+        {
+          "title": "Last Scan Status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "SUBMITTED",
+            "RUNNING",
+            "FINISHED",
+            "TIME_LIMIT_EXCEEDED",
+            "SCAN_NOT_LAUNCHED",
+            "SCANNER_NOT_AVAILABLE",
+            "ERROR",
+            "CANCELED"
+          ],
+          "name": "lastScan.status",
+          "description": "Specify the status of the last scan. You can choose from the following options: SUBMITTED, RUNNING, FINISHED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, ERROR or CANCELED"
+        },
+        {
+          "title": "Last Scan Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "lastScan.date",
+          "description": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format."
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limitResults",
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "startFromOffset",
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
+        },
+        {
+        "title": "Verbose",
+        "name": "verbose",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "value": false,
+        "description": "Set this to true to indicate whether the list of tags associated with the web application should be listed or not.",
+        "tooltip": "Set this to true to indicate whether the list of tags associated with the web application should be listed or not."
+      }
       ],
       "enabled": true
     },
     {
       "title": "Get Web Application Details",
       "operation": "get_webapp_details",
-      "description": "Returns details for a web application which is in the user’s scope. The web application screenshot, when available, is included in the output in the “screenshot” element as a base64 encoded binary string. This string needs to be converted before a user can decode and view the image file (.png). In order to encode screenshots we use urlSafe Base 64 encoding solution like other elements in our API. Therefore these characters will be replaced in the base64 contents: / will be replaced with _ + will be replaced with -",
+      "description": "Returns details for a web application which is in the user’s scope. The web application screenshot, when available, is included in the output in the “screenshot” element as a base64 encoded binary string. This string needs to be converted before a user can decode and view the image file (.jpg). Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes web applications in the user's scope.",
       "category": "investigation",
       "annotation": "get_webapp_details",
       "output_schema": {
@@ -1058,13 +1268,14 @@
       },
       "parameters": [
         {
-          "title": "Scan ID",
+          "title": "App ID",
           "required": true,
           "editable": true,
           "visible": true,
           "type": "text",
-          "name": "scan_id",
-          "description": "The scan ID."
+          "name": "id",
+          "description": "Specify the Web application ID.",
+          "tooltip": "Specify the Web application ID."
         }
       ],
       "enabled": true
@@ -1072,7 +1283,7 @@
     {
       "title": "Create Web Application",
       "operation": "create_web_app",
-      "description": "Create new web application",
+      "description": "Creates a new web application. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access” and WAS Asset Permission “Create Web Asset”. The output includes web applications in the user's scope. If you want to add postman collection files, you must have the 'ENABLE_POSTMAN_COLLECTION' option enabled for your account. If this option is not enabled, contact Qualys Support to enable this option. When only “name” and “url” are specified:\n- Scope defaults to ALL. The scanner will crawl all directories and subdirectories of the starting URL.\n- No default option profile is specified. An option profile must be specified for each scan.\n- No authentication records are defined. No form or server authentication will be performed.\n- No blacklists or whitelists are defined. All directories and sub-directories of the starting URL will be scanned.",
       "category": "investigation",
       "annotation": "create_web_app",
       "output_schema": {
@@ -1167,7 +1378,8 @@
           "visible": true,
           "type": "text",
           "name": "name",
-          "description": "Name of the web application."
+          "description": "Specify the name of the web application.",
+          "tooltip": "Specify the name of the web application."
         },
         {
           "title": "Web App URL",
@@ -1176,7 +1388,8 @@
           "visible": true,
           "type": "text",
           "name": "url",
-          "description": "URL of the web application."
+          "description": "Specify the URL of the web application.",
+          "tooltip": "Specify the URL of the web application."
         },
         {
           "title": "Web App Auth Record ID",
@@ -1185,7 +1398,8 @@
           "visible": true,
           "type": "integer",
           "name": "id",
-          "description": "Web App Auth Record ID of the web application."
+          "description": "Specify the web app auth record ID of the web application.",
+          "tooltip": "Specify the web app auth record ID of the web application."
         }
       ],
       "enabled": true
@@ -1193,7 +1407,7 @@
     {
       "title": "Delete Web Applications",
       "operation": "delete_webapp",
-      "description": "Delete the web application for the specified ID",
+      "description": "Delete a web application configuration in your account. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access” and WAS Asset Permission “Delete Web Asset”. The web application to be deleted must be within the user’s scope.",
       "category": "investigation",
       "annotation": "delete_webapp",
       "output_schema": {
@@ -1205,7 +1419,7 @@
               }
             }
           ],
-          "count": 1,
+          "count": "",
           "responseCode": ""
         }
       },
@@ -1217,7 +1431,980 @@
           "visible": true,
           "type": "integer",
           "name": "app_id",
-          "description": "The scan ID."
+          "description": "Specify the web application ID.",
+          "tooltip": "Specify the web application ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Search Reports",
+      "operation": "search_reports",
+      "description": "Returns a list of reports which are in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes reports in the user's scope.",
+      "category": "investigation",
+      "annotation": "search_reports",
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "description": "Specify the report ID.",
+          "tooltip": "Specify the report ID."
+        },
+        {
+          "title": "Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Specify the report name.",
+          "tooltip": "Specify the report name."
+        },
+        {
+          "title": "Tags ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "tags.id",
+          "description": "Specify the ID of the tag associated with the report.",
+          "tooltip": "Specify the ID of the tag associated with the report."
+        },
+        {
+          "title": "Tags Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "tags.name",
+          "description": "Specify the name of the tag associated with the report.",
+          "tooltip": "Specify the name of the tag associated with the report."
+        },
+        {
+          "title": "Creation Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "creationDate",
+          "description": "Specify the date and time to return all the report which was created after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the report which was created after specified date and time in UTC date/time format."
+        },
+        {
+          "title": "Type",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "WAS_SCAN_REPORT",
+            "WAS_WEBAPP_REPORT",
+            "WAS_SCORECARD_REPORT",
+            "WAS_CATALOG_REPORT",
+            "DATALIST_REPORT"
+          ],
+          "name": "type",
+          "description": "Specify the report type. You can choose from the following options: WAS_SCAN_REPORT, WAS_WEBAPP_REPORT, WAS_SCORECARD_REPORT, WAS_CATALOG_REPORT or DATALIST_REPORT"
+        },
+        {
+          "title": "Format",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "HTML_ZIPPED",
+            "HTML_BASE64",
+            "PDF",
+            "PDF_ENCRYPTED",
+            "POWERPOINT",
+            "CSV",
+            "CSV_V2",
+            "XML",
+            "WORD"
+          ],
+          "name": "format",
+          "description": "Specify the format of the report. You can choose from the following options: HTML_ZIPPED, HTML_BASE64, PDF, PDF_ENCRYPTED, POWERPOINT, CSV, CSV_V2, XML or WORD"
+        },
+        {
+          "title": "Status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "RUNNING",
+            "COMPLETE",
+            "ERROR"
+          ],
+          "name": "status",
+          "description": "Specify the status of the report. You can choose from the following options: RUNNING, ERROR or COMPLETE"
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limitResults",
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "startFromOffset",
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Download Report",
+      "operation": "download_report",
+      "description": "Download a report which is in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes reports in the user's scope.",
+      "category": "investigation",
+      "annotation": "download_report",
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "Report ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "report_id",
+          "description": "Specify the Report ID.",
+          "tooltip": "Specify the Report ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Search Option Profiles",
+      "operation": "search_option_profiles",
+      "description": "Returns a list of option profiles which are in the user’s scope. Action logs are not included in the output. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The Output includes option profiles in the user's scope. Input parameters are optional and act as filters.",
+      "category": "investigation",
+      "annotation": "search_option_profiles",
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "description": "Specify the option profile ID.",
+          "tooltip": "Specify the option profile ID."
+        },
+        {
+          "title": "Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Specify the option profile name.",
+          "tooltip": "Specify the option profile name."
+        },
+        {
+          "title": "Tags ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "tags.id",
+          "description": "Specify the ID of the tag associated with the option profile.",
+          "tooltip": "Specify the ID of the tag associated with the option profile."
+        },
+        {
+          "title": "Tags Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "tags.name",
+          "description": "Specify the name of the tag associated with the option profile.",
+          "tooltip": "Specify the name of the tag associated with the option profile."
+        },
+        {
+          "title": "Created Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "createdDate",
+          "description": "Specify the date and time to return all the option profile which was created in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the option profile which was created in WAS after specified date and time in UTC date/time format."
+        },
+        {
+          "title": "Updated Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "updatedDate",
+          "description": "Specify the date and time to return all the option profile which was last updated in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the option profile which was last updated in WAS after specified date and time in UTC date/time format."
+        },
+        {
+          "title": "Used By Web Apps",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": false,
+          "name": "usedByWebApps",
+          "description": "Web applications used/not used by the option profile.",
+          "tooltip": "Web applications used/not used by the option profile."
+        },
+        {
+          "title": "Used By Schedules",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": false,
+          "name": "usedBySchedules",
+          "description": "Scan schedules used/not used by the option profile.",
+          "tooltip": "Scan schedules used/not used by the option profile."
+        },
+        {
+          "title": "Owner ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "owner.id",
+          "description": "Specify the ID of the owner who created the option profile",
+          "tooltip": "Specify the ID of the owner who created the option profile"
+        },
+        {
+          "title": "Owner Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "owner.name",
+          "description": "Specify the full name of the user who created the option profile.",
+          "tooltip": "Specify the full name of the user who created the option profile."
+        },
+        {
+          "title": "Owner Username",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "owner.username",
+          "description": "Specify the username of the owner who created the option profile.",
+          "tooltip": "Specify the username of the owner who created the option profile."
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limitResults",
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "startFromOffset",
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Search Schedule",
+      "operation": "search_schedule",
+      "description": "Returns a list of scheduled scans on web applications which are in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes scan targets in the user's scope. Input parameters are optional and act as filters.",
+      "category": "investigation",
+      "annotation": "search_schedule",
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "description": "Specify the schedule ID.",
+          "tooltip": "Specify the schedule ID."
+        },
+        {
+          "title": "Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Specify the user-defined schedule name.",
+          "tooltip": "Specify the user-defined schedule name."
+        },
+        {
+          "title": "Owner ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "owner.id",
+          "description": "Specify the ID associated with the owner who created the schedule.",
+          "tooltip": "Specify the ID associated with the owner who created the schedule."
+        },
+        {
+          "title": "Created Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "createdDate",
+          "description": "Specify the date and time to return all the schedule which was created in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the schedule which was created in WAS after specified date and time in UTC date/time format."
+        },
+        {
+          "title": "Updated Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "updatedDate",
+          "description": "Specify the date and time to return all the schedule which was last updated in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the schedule which was last updated in WAS after specified date and time in UTC date/time format."
+        },
+        {
+          "title": "Active",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": false,
+          "name": "active",
+          "description": "Set this to true to indicate whether the schedule is active.",
+          "tooltip": "Set this to true to indicate whether the schedule is active."
+        },
+        {
+          "title": "Type",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "VULNERABILITY",
+            "DISCOVERY"
+          ],
+          "name": "type",
+          "description": "Specify the scheduled scan type. You can choose from the following options: VULNERABILITY or DISCOVERY."
+        },
+        {
+          "title": "Web App Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "webApp.name",
+          "description": "Specify the name of the web application being scanned.",
+          "tooltip": "Specify the name of the web application being scanned."
+        },
+        {
+          "title": "Web App ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "webApp.id",
+          "description": "Specify the ID of the web application being scanned.",
+          "tooltip": "Specify the ID of the web application being scanned."
+        },
+        {
+          "title": "Web App Tag ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "webApp.tags.id",
+          "description": "Specify the ID of the tag applied to the web application being scanned.",
+          "tooltip": "Specify the ID of the tag applied to the web application being scanned."
+        },
+        {
+          "title": "Last Scan Status",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "SUBMITTED",
+            "RUNNING",
+            "FINISHED",
+            "TIME_LIMIT_EXCEEDED",
+            "SCAN_NOT_LAUNCHED",
+            "SCANNER_NOT_AVAILABLE",
+            "ERROR",
+            "CANCELED"
+          ],
+          "name": "lastScan.status",
+          "description": "Specify the status of the last scan. You can choose from the following options: SUBMITTED, RUNNING, FINISHED, TIME_LIMIT_EXCEEDED, SCAN_NOT_LAUNCHED, SCANNER_NOT_AVAILABLE, ERROR or CANCELED"
+        },
+        {
+          "title": "Last Scan Launch Date",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "datetime",
+          "name": "lastScan.launchedDate",
+          "description": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format.",
+          "tooltip": "Specify the date and time to return all the web application which was last scanned in WAS after specified date and time in UTC date/time format."
+        },
+        {
+          "title": "Multi",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "checkbox",
+          "value": false,
+          "name": "multi",
+          "description": "Set this to true to indicate the scheduled scan is multiple scan.",
+          "tooltip": "Set this to true to indicate the scheduled scan is multiple scan."
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limitResults",
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "startFromOffset",
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Get Schedule Details",
+      "operation": "get_schedule_details",
+      "description": "Retrieves details for a scheduled scan on a web application which is in the user’s scope. Permissions required - User must have WAS module enabled. User account must have these permissions: Access Permission “API Access”. The output includes schedules in the user's scope.",
+      "category": "investigation",
+      "annotation": "get_schedule_details",
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "Schedule ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "schedule_id",
+          "description": "Specify the schedule ID.",
+          "tooltip": "Specify the schedule ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Search Tags",
+      "operation": "search_tags",
+      "description": "Returns a list of tags based on the input parameters specified. Permissions required - Managers with full scope, other users must have Access Permission “API Access”",
+      "category": "investigation",
+      "annotation": "search_tags",
+      "output_schema": {
+          "ServiceResponse": {
+              "data": [
+                  {
+                      "Tag": {
+                          "ruleText": "",
+                          "color": "",
+                          "modified": "",
+                          "name": "",
+                          "children": {
+                              "list": [
+                                  {
+                                      "TagSimple": {
+                                          "name": "",
+                                          "id": ""
+                                      }
+                                  }
+                              ]
+                          },
+                          "created": "",
+                          "ruleType": "",
+                          "id": ""
+                      }
+                  }
+              ],
+              "count": "",
+              "responseCode": ""
+          }
+      },
+      "parameters": [
+        {
+          "title": "ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "description": "Specify the tag ID.",
+          "tooltip": "Specify the tag ID."
+        },
+        {
+          "title": "Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Specify the tag name.",
+          "tooltip": "Specify the tag name."
+        },
+        {
+          "title": "Parent ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "parent",
+          "description": "Specify the tag ID of parent.",
+          "tooltip": "Specify the tag ID of parent."
+        },
+        {
+          "title": "Criticality Score",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "criticalityScore",
+          "description": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest.",
+          "tooltip": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest."
+        },
+        {
+          "title": "Rule Type",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "GROOVY",
+            "OS_REGEX",
+            "NETWORK_RANGE",
+            "NAME_CONTAINS",
+            "INSTALLED_SOFTWARE",
+            "OPEN_PORTS",
+            "VULN_EXIST",
+            "ASSET_SEARCH",
+            "CLOUD_ASSET",
+            "BUSINESS_INFORMATION",
+            "STATIC",
+            "GLOBAL_ASSET_VIEW",
+            "NETWORK_RANGE",
+            "TAG_SET"
+          ],
+          "name": "ruleType",
+          "description": "Specify the rule type. You can choose from the following options: GROOVY, OS_REGEX, NETWORK_RANGE, NAME_CONTAINS, INSTALLED_SOFTWARE, OPEN_PORTS, VULN_EXIST, ASSET_SEARCH, CLOUD_ASSET, BUSINESS_INFORMATION."
+        },
+        {
+          "title": "Provider",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "multiselect",
+          "options": [
+            "EC2",
+            "AZURE",
+            "GCP",
+            "IBM",
+            "OCI",
+            "Alibaba"
+          ],
+          "name": "provider",
+          "description": "Specify the provider. You can choose from the following options: EC2, AZURE, GCP, IBM, OCI, Alibaba."
+        },
+        {
+          "title": "Color",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "color",
+          "description": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F",
+          "tooltip": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F"
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limitResults",
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "startFromOffset",
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Create Tag",
+      "operation": "create_tag",
+      "description": "Creates a new tag and possibly child tags. Permissions required - Managers with full scope, other users must have these permissions: Access Permission “API Access”, Tag Permission “Create User Tag”, Tag Permission “Modify Dynamic Tag Rules” (to create a dynamic tag) Note: Provider name is mandatory in case of Cloud Asset tag.",
+      "category": "investigation",
+      "annotation": "create_tag",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+              {
+                "Tag": {
+                  "ruleText": "",
+                  "color": "",
+                  "modified": "",
+                  "name": "",
+                  "children": {
+                    "list": [
+                      {
+                        "TagSimple": {
+                            "name": "",
+                            "id": ""
+                        }
+                      }
+                    ]
+                  },
+                  "created": "",
+                  "ruleType": "",
+                  "id": ""
+                }
+              }
+          ],
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Tag Name",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Specify the name of the tag .",
+          "tooltip": "Specify the name of the tag."
+        },
+        {
+          "title": "Criticality Score",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "criticalityScore",
+          "description": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest.",
+          "tooltip": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest."
+        },
+        {
+          "title": "Rule Type",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "GROOVY",
+            "OS_REGEX",
+            "NETWORK_RANGE",
+            "NAME_CONTAINS",
+            "INSTALLED_SOFTWARE",
+            "OPEN_PORTS",
+            "VULN_EXIST",
+            "ASSET_SEARCH",
+            "CLOUD_ASSET",
+            "BUSINESS_INFORMATION",
+            "STATIC",
+            "GLOBAL_ASSET_VIEW",
+            "NETWORK_RANGE",
+            "TAG_SET"
+          ],
+          "name": "ruleType",
+          "description": "Specify the rule type. You can choose from the following options: GROOVY, OS_REGEX, NETWORK_RANGE, NAME_CONTAINS, INSTALLED_SOFTWARE, OPEN_PORTS, VULN_EXIST, ASSET_SEARCH, CLOUD_ASSET, BUSINESS_INFORMATION."
+        },
+        {
+          "title": "Rule Text",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "ruleText",
+          "description": "Specify the criteria for the rule.",
+          "tooltip": "Specify the criteria for the rule."
+        },
+        {
+          "title": "Provider",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "EC2",
+            "AZURE",
+            "GCP",
+            "IBM",
+            "OCI",
+            "Alibaba"
+          ],
+          "name": "provider",
+          "tooltip": "Provider name is mandatory in case of Cloud Asset tag.",
+          "description": "Specify the provider. You can choose from the following options: EC2, AZURE, GCP, IBM, OCI, Alibaba. Provider name is mandatory in case of Cloud Asset tag."
+        },
+        {
+          "title": "Color",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "color",
+          "description": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F",
+          "tooltip": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F"
+        },
+        {
+          "title": "Child tags",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "children",
+          "description": "Specify the child tags of the tag.",
+          "tooltip": "Specify the child tags of the tag."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Update Tag",
+      "operation": "update_tag",
+      "description": "Updates an existing tag based on tag ID specified. Permissions required - Managers with full scope, other users must have these permissions: Access Permission “API Access”, Tag Permission “Create User Tag”, Tag Permission “Modify Dynamic Tag Rules” (to create a dynamic tag)",
+      "category": "investigation",
+      "annotation": "update_tag",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+              {
+                "Tag": {
+                  "ruleText": "",
+                  "color": "",
+                  "modified": "",
+                  "name": "",
+                  "children": {
+                    "list": [
+                      {
+                        "TagSimple": {
+                            "name": "",
+                            "id": ""
+                        }
+                      }
+                    ]
+                  },
+                  "created": "",
+                  "ruleType": "",
+                  "id": ""
+                }
+              }
+          ],
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Tag ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "description": "Specify the ID of the tag.",
+          "tooltip": "Specify the ID of the tag."
+        },
+        {
+          "title": "Tag Name",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "name",
+          "description": "Specify the name of the tag.",
+          "tooltip": "Specify the name of the tag."
+        },
+        {
+          "title": "Criticality Score",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "criticalityScore",
+          "description": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest.",
+          "tooltip": "Specify the criticality score for a tag between 1 to 5 with 1 being the lowest and 5 being the highest."
+        },
+        {
+          "title": "Rule Type",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "select",
+          "options": [
+            "GROOVY",
+            "OS_REGEX",
+            "NETWORK_RANGE",
+            "NAME_CONTAINS",
+            "INSTALLED_SOFTWARE",
+            "OPEN_PORTS",
+            "VULN_EXIST",
+            "ASSET_SEARCH",
+            "CLOUD_ASSET",
+            "BUSINESS_INFORMATION",
+            "STATIC",
+            "GLOBAL_ASSET_VIEW",
+            "NETWORK_RANGE",
+            "TAG_SET"
+          ],
+          "name": "ruleType",
+          "description": "Specify the rule type. You can choose from the following options: GROOVY, OS_REGEX, NETWORK_RANGE, NAME_CONTAINS, INSTALLED_SOFTWARE, OPEN_PORTS, VULN_EXIST, ASSET_SEARCH, CLOUD_ASSET, BUSINESS_INFORMATION."
+        },
+        {
+          "title": "Rule Text",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "ruleText",
+          "description": "Specify the criteria for the rule.",
+          "tooltip": "Specify the criteria for the rule."
+        },
+        {
+          "title": "Color",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "color",
+          "description": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F",
+          "tooltip": "Specify the tag color. Text formatted as #FFFFFF where F can be any value between 0-9 and A-F"
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Delete Tag",
+      "operation": "delete_tag",
+      "description": "Deletes a tag. Permissions required - Managers with full scope, other users must have these permissions: Access Permission “API Access” and Tag Permission “Delete User Tag”",
+      "category": "investigation",
+      "annotation": "delete_tag",
+      "output_schema": {
+        "ServiceResponse": {
+          "data": [
+            {
+              "SimpleTag": {
+                "id": ""
+              }
+            }
+          ],
+          "count": "",
+          "responseCode": ""
+        }
+      },
+      "parameters": [
+        {
+          "title": "Tag ID",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "tag_id",
+          "description": "Specify the tag ID.",
+          "tooltip": "Specify the tag ID."
+        }
+      ],
+      "enabled": true
+    },
+    {
+      "title": "Search Users",
+      "operation": "search_users",
+      "description": "Returns a list of users based on input parameters specified. Input parameters are optional and act as filters, if no input parameter is specified, all users in the user’s scope are listed. Permissions required - Managers with full scope, other users must have Access Permission “API Access”.",
+      "category": "investigation",
+      "annotation": "search_users",
+      "output_schema": {},
+      "parameters": [
+        {
+          "title": "User ID",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "id",
+          "tooltip": "Specify the user ID.",
+          "description": "Specify the user ID."
+        },
+        {
+          "title": "Username",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "text",
+          "name": "username",
+          "description": "Specify the user name.",
+          "tooltip": "Specify the user name."
+        },
+        {
+          "title": "Limit",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "limitResults",
+          "description": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000.",
+          "tooltip": "Specify the total number of items to return. The default is 100. You can specify a value from 1 to 1,000."
+        },
+        {
+          "title": "Offset",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "type": "integer",
+          "name": "startFromOffset",
+          "description": "Specify the first item to return by index. The default is 1.",
+          "tooltip": "Specify the first item to return by index. The default is 1."
         }
       ],
       "enabled": true
